@@ -1,0 +1,3 @@
+[submodule "com.doji.midas"]
+	path = com.doji.midas
+	url = https://github.com/julienkay/com.doji.midas.git
