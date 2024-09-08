@@ -1,0 +1,72 @@
+# Build and publish multiple docfx projects to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+# Set permissions to allow deployment to GitHub Pages
+permissions:
+  actions: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish-docs:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: true  # Ensure submodules are cloned
+
+    - name: Dotnet Setup
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.x
+
+    - name: Install docfx globally
+      run: dotnet tool install -g docfx
+
+    - name: Build documentation for each submodule
+      run: |
+        # Create a directory to store all generated sites
+        mkdir -p build
+
+        # Find all submodules (assumes they are in the root directory)
+        for submodule in $(git config --file .gitmodules --get-regexp path | awk '{ print $2 }'); do
+          echo "Building documentation for $submodule"
+
+          # Navigate into the submodule directory
+          cd $submodule
+
+          # Ensure we are on the correct branch and pull the latest changes
+          git checkout master
+          git pull origin master
+
+          # Run docfx build command (assumes docfx.json is in the docs folder)
+          docfx docs/docfx.json
+
+          # Copy the generated site to the build directory under a subfolder
+          cp -r docs/_site ../build/$submodule
+
+          # Navigate back to the main repo directory
+          cd ..
+        done
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'build'  # Upload the aggregated documentation
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
