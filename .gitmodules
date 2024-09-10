@@ -1,3 +1,6 @@
 [submodule "com.doji.midas"]
 	path = com.doji.midas
 	url = https://github.com/julienkay/com.doji.midas.git
+[submodule "com.doji.convexify"]
+	path = com.doji.convexify
+	url = https://github.com/Doji-Technologies/com.doji.convexify
