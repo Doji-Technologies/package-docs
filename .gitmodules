@@ -4,3 +4,6 @@
 [submodule "com.doji.convexify"]
 	path = com.doji.convexify
 	url = https://github.com/Doji-Technologies/com.doji.convexify
+[submodule "com.doji.mobilesam"]
+	path = com.doji.mobilesam
+	url = https://github.com/julienkay/com.doji.mobilesam
