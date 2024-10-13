@@ -10,3 +10,6 @@
 [submodule "com.doji.wix"]
 	path = com.doji.wix
 	url = https://github.com/Doji-Technologies/com.doji.wix
+[submodule "com.doji.safetensors"]
+	path = com.doji.safetensors
+	url = https://github.com/julienkay/com.doji.safetensors.git
