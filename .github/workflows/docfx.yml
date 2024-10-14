@@ -63,6 +63,11 @@ jobs:
           cd ..
         done
 
+    - name: Copy the index.html file
+      run: |
+        # Copy the static index.html file to the root of the build directory
+        cp index.html build/index.html
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
