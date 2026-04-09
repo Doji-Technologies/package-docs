@@ -13,3 +13,6 @@
 [submodule "com.doji.safetensors"]
 	path = com.doji.safetensors
 	url = https://github.com/julienkay/com.doji.safetensors.git
+[submodule "com.doji.package-authoring"]
+	path = com.doji.package-authoring
+	url = https://github.com/julienkay/com.doji.package-authoring.git
