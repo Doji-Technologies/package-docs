@@ -27,6 +27,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: true
+        lfs: true
         token: ${{ secrets.PAT_TOKEN }}
 
     - name: Dotnet Setup
@@ -52,6 +53,7 @@ jobs:
           # Ensure we are on the correct branch and pull the latest changes
           git checkout master
           git pull origin master
+          git lfs pull
 
           # Run docfx build command (assumes docfx.json is in the docs folder)
           docfx docs/docfx.json
