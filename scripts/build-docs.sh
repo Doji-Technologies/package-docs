@@ -32,6 +32,11 @@ build_package() {
   local path="$1" unity name version config
   [ -f "$path/docs/docfx.json" ] || { echo "$path/docs/docfx.json not found" >&2; return 1; }
 
+  # Images in the docs can be Git LFS files.
+  if git -C "$path" rev-parse --git-dir >/dev/null 2>&1 && git lfs version >/dev/null 2>&1; then
+    git -C "$path" lfs pull || echo "::warning::$path: git lfs pull failed; LFS files are missing in the site"
+  fi
+
   unity=$("$python" scripts/prepare_docfx.py "$path" --print-unity) || return 1
   version=$("$python" scripts/prepare_docfx.py "$path" --print-version) || return 1
   name=$("$python" scripts/prepare_docfx.py "$path" --print-name) || return 1

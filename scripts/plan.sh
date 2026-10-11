@@ -25,7 +25,9 @@ mkdir -p packages
 while read -r url branch; do
   case "$url" in ''|\#*) continue ;; esac
   dir="packages/$(basename "$url" .git)"
-  if ! git clone --quiet --depth 1 ${branch:+--branch "$branch"} "$url" "$dir"; then
+  # No LFS download here: the hourly poll would use up the LFS bandwidth quota.
+  # build-docs.sh fetches the LFS files of the packages that are built.
+  if ! GIT_LFS_SKIP_SMUDGE=1 git clone --quiet --depth 1 ${branch:+--branch "$branch"} "$url" "$dir"; then
     echo "::error::Could not clone $url"
     echo "$url" >> packages/.failed
     continue
