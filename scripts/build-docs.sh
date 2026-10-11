@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Builds the docfx site of every submodule into build/<package name>/.
+# Builds the docfx site of every package in packages.txt into build/<package name>/.
+# Each repository is cloned at its latest commit into packages/.
 # A package that fails does not stop the others; the failures are listed at the
-# end and in $GITHUB_OUTPUT (failed=...). The exit code is always 0 unless
-# nothing could be built.
+# end and in $GITHUB_OUTPUT (failed=...). The exit code is 0 unless nothing
+# could be built.
 #
-# usage: build-docs.sh [submodule path ...]     (default: all submodules)
+# usage: build-docs.sh [local package repository ...]   (default: clone packages.txt)
 # env:   UNITY_REFS_DIR          cache folder (default: .unity-refs)
 #        UNITY_EDITOR_MANAGED    use a local Editor/Data/Managed instead of Docker
 #        SKIP_EDITOR_FETCH=1     do not try to fetch Editor assemblies
@@ -16,11 +17,24 @@ export UNITY_REFS_DIR="${UNITY_REFS_DIR:-$root/.unity-refs}"
 python=python3
 "$python" --version >/dev/null 2>&1 || python=python
 
+failed=()
+packages=()
 if [ "$#" -gt 0 ]; then
   packages=("$@")
 else
-  mapfile -t packages < <(git config --file .gitmodules --get-regexp '\.path$' | awk '{ print $2 }')
+  while read -r url branch; do
+    case "$url" in ''|\#*) continue ;; esac
+    dir="packages/$(basename "$url" .git)"
+    rm -rf "$root/$dir"
+    if git clone --quiet --depth 1 ${branch:+--branch "$branch"} "$url" "$dir"; then
+      packages+=("$dir")
+    else
+      echo "::error::Could not clone $url"
+      failed+=("$url")
+    fi
+  done < packages.txt
 fi
+total=$((${#packages[@]} + ${#failed[@]}))
 
 build_package() {
   local path="$1" unity name config
@@ -45,7 +59,6 @@ build_package() {
 
 mkdir -p build
 rm -f build/.built
-failed=()
 for path in "${packages[@]}"; do
   echo "::group::$path"
   if build_package "$path"; then
@@ -85,7 +98,7 @@ fi
 built=0
 [ -f build/.built ] && built=$(wc -l < build/.built)
 rm -f build/.built
-echo "Built $built of ${#packages[@]} packages. Failed: ${failed[*]:-none}"
+echo "Built $built of $total packages. Failed: ${failed[*]:-none}"
 if [ -n "${GITHUB_OUTPUT:-}" ]; then
   echo "failed=${failed[*]:-}" >> "$GITHUB_OUTPUT"
 fi

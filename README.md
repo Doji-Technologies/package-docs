@@ -1,11 +1,12 @@
 # package-docs
 
-Builds the [docfx](https://dotnet.github.io/docfx/) documentation of every Doji package (one git
-submodule each) and publishes all of them to GitHub Pages as `docs.doji-tech.com/<package name>/`.
+Builds the [docfx](https://dotnet.github.io/docfx/) documentation of every Doji package listed in
+`packages.txt` and publishes all of them to GitHub Pages as `docs.doji-tech.com/<package name>/`.
+Each run clones the latest commit of every package repository.
 
 ## How a package is built
 
-`scripts/build-docs.sh` runs these steps for each submodule. A package that fails does not stop the
+`scripts/build-docs.sh` runs these steps for each package. A package that fails does not stop the
 others: the rest is published and the workflow run is marked as failed.
 
 1. `scripts/prepare_docfx.py` reads the package's `docs/docfx.json` and `package.json` and writes
@@ -33,20 +34,18 @@ runs. Unity's assemblies are never committed and never part of the published sit
 ## Run it locally
 
 Needs bash, Python 3, curl, the .NET SDK and docfx 2.78 or newer. Use a local Unity installation
-instead of Docker:
+instead of Docker, and pass a local checkout of the package repository:
 
 ```bash
-UNITY_EDITOR_MANAGED="C:/Program Files/Unity/Hub/Editor/6000.0.60f1/Editor/Data/Managed" \
-  bash scripts/build-docs.sh com.doji.midas
+UNITY_EDITOR_MANAGED="C:/Program Files/Unity/Hub/Editor/6000.0.60f1/Editor/Data/Managed"   bash scripts/build-docs.sh ../com.doji.midas
 ```
+
+Without arguments, the script clones and builds everything in `packages.txt`.
 
 ## Add a package
 
-```bash
-git submodule add https://github.com/<owner>/<repository> <package name>
-```
-
-The submodule follows the default branch of its repository. To follow another branch, set
-`branch = <name>` for it in `.gitmodules`. The site folder is the `name` in the package's `package.json`.
+Add a line to `packages.txt`: `<repository url> [branch]`. Without a branch, the default branch of
+the repository is used. The site folder is the `name` in the package's `package.json`. Private
+repositories must be readable with the `PAT_TOKEN` secret.
 
 `redirects.txt` lists old site folders that redirect to a new one.

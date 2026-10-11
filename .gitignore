@@ -3,3 +3,4 @@
 # Aggregated site built by scripts/build-docs.sh
 build/
 __pycache__/
+packages/

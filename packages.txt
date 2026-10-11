@@ -1,0 +1,8 @@
+# Package repositories to build documentation for: <repository url> [branch]
+# Without a branch, the default branch of the repository is used.
+https://github.com/julienkay/com.doji.midas
+https://github.com/Doji-Technologies/tools.doji.convexify
+https://github.com/julienkay/com.doji.mobilesam
+https://github.com/Doji-Technologies/com.doji.wix
+https://github.com/julienkay/com.doji.safetensors
+https://github.com/julienkay/com.doji.package-authoring

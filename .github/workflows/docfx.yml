@@ -24,14 +24,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        submodules: true
-        lfs: true
-        token: ${{ secrets.PAT_TOKEN }}
+        persist-credentials: false
 
-    # Each submodule follows the "branch" set in .gitmodules, or else the
-    # default branch of its remote. The commit pinned in this repo is not used.
-    - name: Update submodules to their latest commit
-      run: git submodule update --init --remote --force --depth 1
+    # Lets scripts/build-docs.sh clone the private package repositories.
+    - name: Authenticate git for the package repositories
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+      run: |
+        if [ -n "$PAT_TOKEN" ]; then
+          git config --global url."https://x-access-token:${PAT_TOKEN}@github.com/".insteadOf "https://github.com/"
+        fi
 
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v4
@@ -51,7 +53,7 @@ jobs:
         key: unity-refs-v1-${{ github.run_id }}
         restore-keys: unity-refs-v1-
 
-    - name: Build documentation for each submodule
+    - name: Build documentation for each package
       id: build
       run: bash scripts/build-docs.sh
 
