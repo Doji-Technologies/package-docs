@@ -6,7 +6,7 @@ Builds the [docfx](https://dotnet.github.io/docfx/) documentation of every Doji 
 
 ## When documentation is published
 
-- **Every hour**, the workflow clones the latest commit of each package repository and compares the
+- **Once a day**, the workflow clones the latest commit of each package repository and compares the
   `version` in its `package.json` with the published one (`versions.json` in `gh-pages`). Only packages
   with a different version are rebuilt. When nothing changed, the run ends after a few seconds.
 - **A push to `master` of this repository or a manual run** of the workflow rebuilds all packages. Use

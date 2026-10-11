@@ -10,7 +10,7 @@ on:
   # Poll the package repositories: a package is rebuilt when the version in its
   # package.json differs from the published one.
   schedule:
-    - cron: '17 * * * *'
+    - cron: '17 5 * * *'  # daily, 05:17 UTC
 
 permissions:
   contents: read
