@@ -6,6 +6,10 @@ on:
       - master
   pull_request:
   workflow_dispatch:
+  # Sent by the package repositories when their package.json changes,
+  # see templates/update-package-docs.yml.
+  repository_dispatch:
+    types: [package-updated]
 
 permissions:
   contents: read

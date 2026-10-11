@@ -48,4 +48,9 @@ Add a line to `packages.txt`: `<repository url> [branch]`. Without a branch, the
 the repository is used. The site folder is the `name` in the package's `package.json`. Private
 repositories must be readable with the `PAT_TOKEN` secret.
 
+To republish automatically when the package's `package.json` changes (a version bump), copy
+`templates/update-package-docs.yml` to `.github/workflows/` in the package repository and add the
+`PACKAGE_DOCS_TOKEN` secret described in that file. Without it, the documentation is only rebuilt on
+a push to this repository or a manual run of the workflow.
+
 `redirects.txt` lists old site folders that redirect to a new one.
