@@ -4,77 +4,98 @@ on:
   push:
     branches:
       - master
+  pull_request:
+  workflow_dispatch:
 
-# Set permissions to allow deployment to GitHub Pages
 permissions:
-  actions: read
-  pages: write
-  id-token: write
+  contents: read
 
 # Allow only one concurrent deployment
 concurrency:
-  group: "pages"
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  publish-docs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      failed: ${{ steps.build.outputs.failed }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: true
         lfs: true
         token: ${{ secrets.PAT_TOKEN }}
 
+    # Each submodule follows the "branch" set in .gitmodules, or else the
+    # default branch of its remote. The commit pinned in this repo is not used.
+    - name: Update submodules to their latest commit
+      run: git submodule update --init --remote --force --depth 1
+
     - name: Dotnet Setup
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.x
 
-    - name: Install docfx globally
-      run: dotnet tool install -g docfx
+    # 2.78.0 is the first version with the AllowUnsafeBlocks metadata property.
+    - name: Install docfx
+      run: dotnet tool install -g docfx --version 2.81.0
+
+    # Unity reference assemblies, package tarballs, compiled dependencies, xref maps.
+    - name: Restore Unity references
+      id: refs
+      uses: actions/cache/restore@v4
+      with:
+        path: .unity-refs
+        key: unity-refs-v1-${{ github.run_id }}
+        restore-keys: unity-refs-v1-
 
     - name: Build documentation for each submodule
+      id: build
+      run: bash scripts/build-docs.sh
+
+    - name: Hash Unity references
+      id: refs-hash
       run: |
-        # Create a directory to store all generated sites
-        mkdir -p build
+        mkdir -p .unity-refs
+        rm -rf .unity-refs/obj
+        echo "hash=$(find .unity-refs -type f | sort | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
 
-        # Find all submodules (assumes they are in the root directory)
-        for submodule in $(git config --file .gitmodules --get-regexp path | awk '{ print $2 }'); do
-          echo "Building documentation for $submodule"
-
-          # Navigate into the submodule directory
-          cd $submodule
-
-          # Ensure we are on the correct branch and pull the latest changes
-          git checkout master
-          git pull origin master
-          git lfs pull
-
-          # Run docfx build command (assumes docfx.json is in the docs folder)
-          docfx docs/docfx.json
-
-          # Copy the generated site to the build directory under a subfolder
-          cp -r docs/_site ../build/$submodule
-
-          # Navigate back to the main repo directory
-          cd ..
-        done
-
-    - name: Copy the index.html file
-      run: |
-        # Copy the static index.html file to the root of the build directory
-        cp index.html build/index.html
+    - name: Save Unity references
+      if: github.event_name != 'pull_request' && steps.refs.outputs.cache-matched-key != format('unity-refs-v1-{0}', steps.refs-hash.outputs.hash)
+      uses: actions/cache/save@v4
+      with:
+        path: .unity-refs
+        key: unity-refs-v1-${{ steps.refs-hash.outputs.hash }}
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: 'build'  # Upload the aggregated documentation
 
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+
+  # The packages that built are published either way; this makes the failure visible.
+  report:
+    needs: [build, deploy]
+    if: always() && needs.build.outputs.failed != ''
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fail on packages that did not build
+      run: |
+        echo "::error::Documentation build failed for: ${{ needs.build.outputs.failed }}"
+        exit 1

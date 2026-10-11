@@ -1,0 +1,2 @@
+# Old site folders that redirect to a new one: <old> <new>
+com.doji.convexify tools.doji.convexify

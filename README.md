@@ -1,0 +1,52 @@
+# package-docs
+
+Builds the [docfx](https://dotnet.github.io/docfx/) documentation of every Doji package (one git
+submodule each) and publishes all of them to GitHub Pages as `docs.doji-tech.com/<package name>/`.
+
+## How a package is built
+
+`scripts/build-docs.sh` runs these steps for each submodule. A package that fails does not stop the
+others: the rest is published and the workflow run is marked as failed.
+
+1. `scripts/prepare_docfx.py` reads the package's `docs/docfx.json` and `package.json` and writes
+   `docs/docfx.generated.json`. The package repository itself is not changed. The generated config adds:
+   - **Unity Editor assemblies** as `references` (`UnityEngine.*`, `UnityEditor.*`).
+     `scripts/fetch-unity-editor-refs.sh` copies them out of the
+     [GameCI](https://game.ci/docs/docker/docker-images) Editor image for the package's Unity version
+     (`"unity"` in `package.json`, default `6000.0`). The Editor is not started, so no license is used.
+   - **Dependency packages** as `references`. Every registry dependency in `package.json` is downloaded
+     from the Unity registry (transitively) and its runtime assemblies are compiled to DLLs with
+     `dotnet build`. Precompiled DLLs in the packages are referenced directly.
+   - `AllowUnsafeBlocks` and the Unity scripting defines as `properties`.
+   - **Unity's xref maps** as `xref`, so Unity types link to the Scripting Reference
+     (`docs.unity3d.com/<version>/Documentation/ScriptReference/`) and to the package documentation
+     (`docs.unity3d.com/Packages/<name>@<major.minor>/`).
+2. `docfx docs/docfx.generated.json`
+3. `docs/_site` is copied to `build/<package name>`.
+
+Each step only warns when it cannot do its work. Without references the documentation still builds,
+with unresolved Unity types.
+
+Everything that is downloaded or compiled is stored in `.unity-refs/` and cached between workflow
+runs. Unity's assemblies are never committed and never part of the published site.
+
+## Run it locally
+
+Needs bash, Python 3, curl, the .NET SDK and docfx 2.78 or newer. Use a local Unity installation
+instead of Docker:
+
+```bash
+UNITY_EDITOR_MANAGED="C:/Program Files/Unity/Hub/Editor/6000.0.60f1/Editor/Data/Managed" \
+  bash scripts/build-docs.sh com.doji.midas
+```
+
+## Add a package
+
+```bash
+git submodule add https://github.com/<owner>/<repository> <package name>
+```
+
+The submodule follows the default branch of its repository. To follow another branch, set
+`branch = <name>` for it in `.gitmodules`. The site folder is the `name` in the package's `package.json`.
+
+`redirects.txt` lists old site folders that redirect to a new one.

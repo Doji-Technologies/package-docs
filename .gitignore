@@ -1,0 +1,5 @@
+# Unity reference assemblies, package tarballs and xref maps fetched by scripts/
+.unity-refs/
+# Aggregated site built by scripts/build-docs.sh
+build/
+__pycache__/
