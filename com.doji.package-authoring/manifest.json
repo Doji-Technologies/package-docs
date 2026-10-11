@@ -1,0 +1,509 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/package-docs/package-docs/packages/com.doji.package-authoring/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.LicenseType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.LicenseType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.LicenseType",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.LicenseType.yml\" sourcestartlinenumber=\"1\">Supported generated license templates for new packages.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.PackageDependencyEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.PackageDependencyEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.PackageDependencyEntry",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.PackageDependencyEntry.yml\" sourcestartlinenumber=\"1\">Serializable dependency entry for generated package manifests and presets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.PackageDependencyList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.PackageDependencyList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.PackageDependencyList",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.PackageDependencyList.yml\" sourcestartlinenumber=\"1\">Serialized dependency collection written into generated package manifests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.PackageSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.PackageSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.PackageSettings",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.PackageSettings.yml\" sourcestartlinenumber=\"1\">Shared package-facing settings used by package scaffolding presets and the package wizard.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.PreferredEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.PreferredEditor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.PreferredEditor",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.PreferredEditor.yml\" sourcestartlinenumber=\"1\">Selects which Unity IDE integration package should be installed into generated projects.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.ProjectSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.ProjectSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.ProjectSettings",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.ProjectSettings.yml\" sourcestartlinenumber=\"1\">Shared project-facing settings used by both the standalone and companion project wizards.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.RepoSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.RepoSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models.RepoSettings",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.Models.RepoSettings.yml\" sourcestartlinenumber=\"1\">Repository-facing settings that shape generated root files and metadata outside the package manifest.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.PackageAuthoringApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.PackageAuthoringApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring.PackageAuthoringApi",
+      "Summary": "<p sourcefile=\"api/Doji.PackageAuthoring.PackageAuthoringApi.yml\" sourcestartlinenumber=\"1\">Exposes package authoring settings and generation operations for editor scripts that drive the tooling\nprogrammatically.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.PackageAuthoring.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.PackageAuthoring.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.PackageAuthoring",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/ackage-templates-page.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/ackage-templates-page.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/companion-project-section.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/companion-project-section.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/documentation-branding-fields.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/documentation-branding-fields.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/documentation-home-hero.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/documentation-home-hero.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/documentation-templates-page.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/documentation-templates-page.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/output-and-preview-section.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/output-and-preview-section.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-authoring-preset-asset.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-authoring-preset-asset.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-authoring-preset-asset_create.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-authoring-preset-asset_create.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-creation-wizard-output-preview.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-creation-wizard-output-preview.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-creation-wizard-presets.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-creation-wizard-presets.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-creation-wizard-presets_options.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-creation-wizard-presets_options.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-creation-wizard-sections.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-creation-wizard-sections.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-definition-section.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-definition-section.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/package-templates-page.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/package-templates-page.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/project-defaults-page.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/project-defaults-page.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/project-settings-preset-menu.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/project-settings-preset-menu.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/repo-settings-section.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/repo-settings-section.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/repository-layout-preview-detail.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/repository-layout-preview-detail.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/repository-templates-page.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/repository-templates-page.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/manual/templates-landing-page.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/manual/templates-landing-page.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/defaults-and-presets.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/defaults-and-presets.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/package-creation-wizard-settings.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/package-creation-wizard-settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/package-creation-wizard.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/package-creation-wizard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/projects.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/projects.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/scripting-api.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/scripting-api.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/templates.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/templates.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/package-docs/package-docs/packages/com.doji.safetensors/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.Dtype.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.Dtype.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.Dtype",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.Dtype.yml\" sourcestartlinenumber=\"1\">Represents the various data types available in safetensors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.DtypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.DtypeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.DtypeExtensions",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.DtypeExtensions.yml\" sourcestartlinenumber=\"1\">Provides the size in bytes for each Dtype.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.HeaderTooLargeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.HeaderTooLargeException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.HeaderTooLargeException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.HeaderTooSmallException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.HeaderTooSmallException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.HeaderTooSmallException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.InvalidHeaderDeserializationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.InvalidHeaderDeserializationException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.InvalidHeaderDeserializationException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.InvalidHeaderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.InvalidHeaderException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.InvalidHeaderException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.InvalidHeaderLengthException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.InvalidHeaderLengthException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.InvalidHeaderLengthException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.InvalidHeaderStartException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.InvalidHeaderStartException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.InvalidHeaderStartException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.InvalidOffsetException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.InvalidOffsetException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.InvalidOffsetException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.InvalidTensorViewException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.InvalidTensorViewException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.InvalidTensorViewException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.IoErrorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.IoErrorException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.IoErrorException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.JsonErrorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.JsonErrorException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.JsonErrorException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.Metadata.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.Metadata",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.Metadata.yml\" sourcestartlinenumber=\"1\">The stuct representing the header of safetensor files which allow\nindexing into the raw byte-buffer array and how to interpret it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.MetadataIncompleteBufferException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.MetadataIncompleteBufferException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.MetadataIncompleteBufferException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.SafeTensorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.SafeTensorException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.SafeTensorException",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.SafeTensorException.yml\" sourcestartlinenumber=\"1\">Represents errors that occur during safetensors operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.SafeTensors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.SafeTensors.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.SafeTensors",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.SafeTensors.yml\" sourcestartlinenumber=\"1\">Represents the entire safetensors file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.TensorInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.TensorInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.TensorInfo",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.TensorInfo.yml\" sourcestartlinenumber=\"1\">Contains information about a single tensor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.TensorInvalidInfoException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.TensorInvalidInfoException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.TensorInvalidInfoException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.TensorNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.TensorNotFoundException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.TensorNotFoundException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.TensorView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.TensorView.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.TensorView",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Safetensors.TensorView.yml\" sourcestartlinenumber=\"1\">Represents a readable view of a tensor's data within the file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.ValidationOverflowException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.ValidationOverflowException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors.ValidationOverflowException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Safetensors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Safetensors.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Safetensors",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/doji.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/doji.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

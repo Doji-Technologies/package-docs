@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Initial Setup </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Initial Setup ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="initial-setup">Initial Setup</h1>
+
+<p>This document will aid you in setting up <a href="https://assetstore.unity.com/packages/tools/utilities/windows-installer-for-unity-215960?aid=1101l3w5RJ&amp;pubref=docs">Windows Installer for Unity</a> for the first time, but you can also just follow the steps in the WiX for Unity Wizard, which will guide you through the necessary steps.</p>
+<p>To open the wizard go to <code>Window -&gt; WiX -&gt; Wix for Unity Wizard</code> or alternatively, use the keyboard shortcut <kbd>Alt</kbd> + <kbd>W</kbd>.</p>
+<p><img src="../images/menubar.webp" alt="WiX for Unity Wizard in Unity's menu bar"></p>
+<p>When you've imported the package for the first time, it is necessary to install WiX. WiX is an open source framework that builds Windows installation packages (.msi) from XML source code. It is installed as a <a href="https://learn.microsoft.com/dotnet/core/tools/global-tools">.NET Tool</a>, which is why having .NET 3.1 or higher is one of the system requirements.</p>
+<h4 id="1-installing-the-net-sdk"><strong>1. Installing the .NET SDK</strong></h4>
+<p>In the wizard, select 'Install Recommended Version' and download the newest version of the .NET SDK. At the time of this writing, the recommended version is <a href="https://dotnet.microsoft.com/en-us/download">.NET 6.0</a></p>
+<p>This step is only necessary, if you don't already have a suitable version of .NET SDK installed.</p>
+<p><img src="../images/wizard_0.webp" alt="WiX Wizard .NET Installation"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In case the wizard does not advance to the next step after installing the .NET SDK, or you are getting an error that <code>'wix' is not recognized as an internal or external command</code> at a later point, please try restarting your machine.</p>
+</div>
+<h4 id="2-installing-wix"><strong>2. Installing WiX</strong></h4>
+<p>Next, hit the 'Install WiX' button and WiX will be installed in the background.</p>
+<p><img src="../images/wizard_1.webp" alt="WiX Wizard WiX Installation"></p>
+<h4 id="3-profit"><strong>3. Profit</strong></h4>
+<p>That's it. After these steps you've successfully installed WiX and are good to go. The main screen of the wizard should look something like this:</p>
+<p><img src="../images/wizard_2.webp" alt="WiX Wizard"></p>
+<p>In the next chapter we'll go through the steps to create an installer for your project.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

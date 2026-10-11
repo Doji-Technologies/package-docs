@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Windows Installer for Unity: Installer Technology made easy! </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Windows Installer for Unity: Installer Technology made easy! ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="windows-installer-for-unity-installer-technology-made-easy">Windows Installer for Unity: Installer Technology made easy!</h1>
+
+<p><a href="https://assetstore.unity.com/packages/tools/utilities/windows-installer-for-unity-215960?aid=1101l3w5RJ&amp;pubref=docs">Windows Installer for Unity</a> allows developers of Windows applications built with Unity
+to easily create .msi installation packages.</p>
+<p><strong>Minimal knowledge required</strong></p>
+<p>MSI (Windows Installer) is a complex technology.
+Under the hood, this asset uses <a href="https://wixtoolset.org/">WiX</a>, an open source framework that simplifies creating installation packages.
+While it's a great tool, WiX itself also has a very steep learning curve.
+Creating an installer that suits your needs takes someone with no prior experience a few weeks of learning the ins and outs of how MSI installers work.
+WiX for Unity takes away that complexity, so you can focus on building your product instead of dealing with installer technology.</p>
+<p><strong>Fully automatable</strong></p>
+<p>Developed with build automation in mind, WiX for Unity can be completely controlled via editor scripting.</p>
+<h1 id="faq">FAQ</h1>
+<h3 id="does-my-application-need-an-installer">Does my application need an installer?</h3>
+<p>The truth is, most traditional Unity applications won't need one. For gaming applications, you will probably end up uploading to a platform like Steam or itch.io anyway. Those already handle packaging and distribution for you.</p>
+<p>An installer (specifically in .msi format) will be mostly useful for business applications.</p>
+<p>You can read more about the benefits of MSI for this use case <a href="msi.html">here</a>.</p>
+<h3 id="does-having-an-installer-remove-the-windows-security-popup-that-can-appear-when-running-a-unity-application">Does having an installer remove the Windows Security popup that can appear when running a Unity application?</h3>
+<p>Having an installer does <strong>not</strong> solve the issue that <a href="https://learn.microsoft.com/en-us/windows/security/operating-system-security/virus-and-threat-protection/microsoft-defender-smartscreen/">Microsoft SmartScreen</a> might notify its users with a message that your app is potentially unsafe. The general advice on how to solve this is, that you should both:</p>
+<ul>
+<li>Code-sign your application by purchasing a certificate from a <a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/dashboard/code-signing-cert-manage#extended-validation-code-signing-certificates">Certificate Authority</a>.</li>
+<li>Get your application out to enough users to build reputation so SmartScreen eventually considers it safe.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
