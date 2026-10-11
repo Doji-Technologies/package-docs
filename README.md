@@ -1,13 +1,25 @@
 # package-docs
 
 Builds the [docfx](https://dotnet.github.io/docfx/) documentation of every Doji package listed in
-`packages.txt` and publishes all of them to GitHub Pages as `docs.doji-tech.com/<package name>/`.
-Each run clones the latest commit of every package repository.
+`packages.txt` and publishes it to the `gh-pages` branch, which GitHub Pages serves as
+`docs.doji-tech.com/<package name>/`.
+
+## When documentation is published
+
+- **Every hour**, the workflow clones the latest commit of each package repository and compares the
+  `version` in its `package.json` with the published one (`versions.json` in `gh-pages`). Only packages
+  with a different version are rebuilt. When nothing changed, the run ends after a few seconds.
+- **A push to `master` of this repository or a manual run** of the workflow rebuilds all packages. Use
+  a manual run to publish documentation changes without a version bump.
+- **A pull request** builds all packages and uploads them as the `docs` artifact. Nothing is published.
+
+Only the folders of the packages that were built are replaced in `gh-pages`. A package that fails to
+build keeps its published documentation, and the workflow run is marked as failed.
 
 ## How a package is built
 
-`scripts/build-docs.sh` runs these steps for each package. A package that fails does not stop the
-others: the rest is published and the workflow run is marked as failed.
+`scripts/plan.sh` selects the packages, `scripts/build-docs.sh` builds each of them with the steps
+below, and `scripts/publish.sh` copies the results into the site.
 
 1. `scripts/prepare_docfx.py` reads the package's `docs/docfx.json` and `package.json` and writes
    `docs/docfx.generated.json`. The package repository itself is not changed. The generated config adds:
@@ -40,17 +52,13 @@ instead of Docker, and pass a local checkout of the package repository:
 UNITY_EDITOR_MANAGED="C:/Program Files/Unity/Hub/Editor/6000.0.60f1/Editor/Data/Managed"   bash scripts/build-docs.sh ../com.doji.midas
 ```
 
-Without arguments, the script clones and builds everything in `packages.txt`.
+Without arguments, the script clones and builds everything in `packages.txt`. The result is in
+`build/<package name>/`.
 
 ## Add a package
 
 Add a line to `packages.txt`: `<repository url> [branch]`. Without a branch, the default branch of
 the repository is used. The site folder is the `name` in the package's `package.json`. Private
 repositories must be readable with the `PAT_TOKEN` secret.
-
-To republish automatically when the package's `package.json` changes (a version bump), copy
-`templates/update-package-docs.yml` to `.github/workflows/` in the package repository and add the
-`PACKAGE_DOCS_TOKEN` secret described in that file. Without it, the documentation is only rebuilt on
-a push to this repository or a manual run of the workflow.
 
 `redirects.txt` lists old site folders that redirect to a new one.

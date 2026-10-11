@@ -1,4 +1,5 @@
-# Build and publish multiple docfx projects to GitHub Pages
+# Build the docfx documentation of the packages in packages.txt and publish it
+# to the gh-pages branch, which GitHub Pages serves.
 
 on:
   push:
@@ -6,31 +7,33 @@ on:
       - master
   pull_request:
   workflow_dispatch:
-  # Sent by the package repositories when their package.json changes,
-  # see templates/update-package-docs.yml.
-  repository_dispatch:
-    types: [package-updated]
+  # Poll the package repositories: a package is rebuilt when the version in its
+  # package.json differs from the published one.
+  schedule:
+    - cron: '17 * * * *'
 
 permissions:
   contents: read
 
-# Allow only one concurrent deployment
+# One publish at a time. Pull requests publish nothing and have their own group.
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'publish' }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      failed: ${{ steps.build.outputs.failed }}
+    permissions:
+      contents: write  # push to gh-pages
+    env:
+      SITE_REMOTE: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         persist-credentials: false
 
-    # Lets scripts/build-docs.sh clone the private package repositories.
+    # Lets scripts/plan.sh clone the private package repositories.
     - name: Authenticate git for the package repositories
       env:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
@@ -39,17 +42,31 @@ jobs:
           git config --global url."https://x-access-token:${PAT_TOKEN}@github.com/".insteadOf "https://github.com/"
         fi
 
+    - name: Fetch the published site
+      run: git clone --quiet --depth 1 --branch gh-pages "$SITE_REMOTE" site || mkdir -p site
+
+    # A scheduled run builds only the packages with a new version. Every other
+    # run (push, pull request, manual) builds all of them.
+    - name: Find the packages to build
+      id: plan
+      env:
+        FORCE: ${{ github.event_name != 'schedule' && '1' || '' }}
+      run: bash scripts/plan.sh site
+
     - name: Dotnet Setup
+      if: steps.plan.outputs.count != '0'
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.x
 
     # 2.78.0 is the first version with the AllowUnsafeBlocks metadata property.
     - name: Install docfx
+      if: steps.plan.outputs.count != '0'
       run: dotnet tool install -g docfx --version 2.81.0
 
     # Unity reference assemblies, package tarballs, compiled dependencies, xref maps.
     - name: Restore Unity references
+      if: steps.plan.outputs.count != '0'
       id: refs
       uses: actions/cache/restore@v4
       with:
@@ -57,11 +74,13 @@ jobs:
         key: unity-refs-v1-${{ github.run_id }}
         restore-keys: unity-refs-v1-
 
-    - name: Build documentation for each package
+    - name: Build documentation
+      if: steps.plan.outputs.count != '0'
       id: build
       run: bash scripts/build-docs.sh
 
     - name: Hash Unity references
+      if: steps.plan.outputs.count != '0'
       id: refs-hash
       run: |
         mkdir -p .unity-refs
@@ -69,39 +88,37 @@ jobs:
         echo "hash=$(find .unity-refs -type f | sort | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
 
     - name: Save Unity references
-      if: github.event_name != 'pull_request' && steps.refs.outputs.cache-matched-key != format('unity-refs-v1-{0}', steps.refs-hash.outputs.hash)
+      if: steps.plan.outputs.count != '0' && github.event_name != 'pull_request' && steps.refs.outputs.cache-matched-key != format('unity-refs-v1-{0}', steps.refs-hash.outputs.hash)
       uses: actions/cache/save@v4
       with:
         path: .unity-refs
         key: unity-refs-v1-${{ steps.refs-hash.outputs.hash }}
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Upload the built documentation
+      if: github.event_name == 'pull_request' && steps.plan.outputs.count != '0' && steps.build.outputs.built != '0'
+      uses: actions/upload-artifact@v4
       with:
-        path: 'build'  # Upload the aggregated documentation
+        name: docs
+        path: build
+        retention-days: 7
 
-  deploy:
-    needs: build
-    if: github.event_name != 'pull_request'
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-
-  # The packages that built are published either way; this makes the failure visible.
-  report:
-    needs: [build, deploy]
-    if: always() && needs.build.outputs.failed != ''
-    runs-on: ubuntu-latest
-    steps:
-    - name: Fail on packages that did not build
+    # Only the folders of the packages that were built are replaced. The branch
+    # is rewritten as a single commit so that it does not grow with every build.
+    - name: Publish to gh-pages
+      if: github.event_name != 'pull_request' && steps.plan.outputs.count != '0' && steps.build.outputs.built != '0'
       run: |
-        echo "::error::Documentation build failed for: ${{ needs.build.outputs.failed }}"
+        bash scripts/publish.sh site
+        cd site
+        rm -rf .git
+        git init --quiet --initial-branch gh-pages
+        git add --all
+        git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+          commit --quiet -m "Publish documentation (${GITHUB_SHA::7}, run ${GITHUB_RUN_ID})"
+        git push --quiet --force "$SITE_REMOTE" gh-pages
+
+    # The other packages are published either way; this makes the failure visible.
+    - name: Fail on packages that did not build
+      if: steps.plan.outputs.failed != '' || steps.build.outputs.failed != ''
+      run: |
+        echo "::error::Documentation build failed for: ${{ steps.plan.outputs.failed }} ${{ steps.build.outputs.failed }}"
         exit 1

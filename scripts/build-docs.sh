@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Builds the docfx site of every package in packages.txt into build/<package name>/.
-# Each repository is cloned at its latest commit into packages/.
+# Builds the docfx site of each package into build/<package name>/.
 # A package that fails does not stop the others; the failures are listed at the
-# end and in $GITHUB_OUTPUT (failed=...). The exit code is 0 unless nothing
-# could be built.
+# end and in $GITHUB_OUTPUT (failed=...). The exit code is always 0.
 #
-# usage: build-docs.sh [local package repository ...]   (default: clone packages.txt)
+# usage: build-docs.sh [local package repository ...]
+#        Without arguments: the packages selected by plan.sh (packages/.todo),
+#        or all of packages.txt when plan.sh did not run yet.
 # env:   UNITY_REFS_DIR          cache folder (default: .unity-refs)
 #        UNITY_EDITOR_MANAGED    use a local Editor/Data/Managed instead of Docker
 #        SKIP_EDITOR_FETCH=1     do not try to fetch Editor assemblies
@@ -22,25 +22,18 @@ packages=()
 if [ "$#" -gt 0 ]; then
   packages=("$@")
 else
-  while read -r url branch; do
-    case "$url" in ''|\#*) continue ;; esac
-    dir="packages/$(basename "$url" .git)"
-    rm -rf "$root/$dir"
-    if git clone --quiet --depth 1 ${branch:+--branch "$branch"} "$url" "$dir"; then
-      packages+=("$dir")
-    else
-      echo "::error::Could not clone $url"
-      failed+=("$url")
-    fi
-  done < packages.txt
+  [ -f packages/.todo ] || FORCE=1 bash scripts/plan.sh
+  mapfile -t packages < packages/.todo
+  mapfile -t failed < packages/.failed
 fi
 total=$((${#packages[@]} + ${#failed[@]}))
 
 build_package() {
-  local path="$1" unity name config
+  local path="$1" unity name version config
   [ -f "$path/docs/docfx.json" ] || { echo "$path/docs/docfx.json not found" >&2; return 1; }
 
   unity=$("$python" scripts/prepare_docfx.py "$path" --print-unity) || return 1
+  version=$("$python" scripts/prepare_docfx.py "$path" --print-version) || return 1
   name=$("$python" scripts/prepare_docfx.py "$path" --print-name) || return 1
 
   if [ -z "${UNITY_EDITOR_MANAGED:-}" ] && [ -z "${SKIP_EDITOR_FETCH:-}" ]; then
@@ -54,7 +47,7 @@ build_package() {
 
   rm -rf "build/$name"
   cp -r "$path/docs/_site" "build/$name" || return 1
-  echo "$name" >> build/.built
+  echo "$name $version" >> build/.built
 }
 
 mkdir -p build
@@ -70,36 +63,10 @@ for path in "${packages[@]}"; do
   fi
 done
 
-cp index.html build/index.html
-
-# Old URLs: "<old folder> <new folder>" per line.
-if [ -f redirects.txt ]; then
-  while read -r from to; do
-    case "$from" in ''|\#*) continue ;; esac
-    [ -e "build/$from" ] && continue
-    mkdir -p "build/$from"
-    cat > "build/$from/index.html" <<EOF
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=../$to/">
-  <link rel="canonical" href="../$to/">
-  <title>Redirecting...</title>
-</head>
-<body>
-  <p>This documentation moved to <a href="../$to/">$to</a>.</p>
-</body>
-</html>
-EOF
-  done < redirects.txt
-fi
-
 built=0
-[ -f build/.built ] && built=$(wc -l < build/.built)
-rm -f build/.built
+[ -f build/.built ] && built=$(wc -l < build/.built | tr -d ' ')
 echo "Built $built of $total packages. Failed: ${failed[*]:-none}"
 if [ -n "${GITHUB_OUTPUT:-}" ]; then
+  echo "built=$built" >> "$GITHUB_OUTPUT"
   echo "failed=${failed[*]:-}" >> "$GITHUB_OUTPUT"
 fi
-[ "$built" -gt 0 ]

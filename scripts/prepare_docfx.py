@@ -18,6 +18,7 @@ Usage:
   prepare_docfx.py <repo>                  print the path of the generated config
   prepare_docfx.py <repo> --print-unity    print the Unity version (major.minor)
   prepare_docfx.py <repo> --print-name     print the package name
+  prepare_docfx.py <repo> --print-version  print the package version
 """
 
 import argparse
@@ -509,6 +510,7 @@ def main():
                         help="Unity version for packages without a \"unity\" field")
     parser.add_argument("--print-unity", action="store_true")
     parser.add_argument("--print-name", action="store_true")
+    parser.add_argument("--print-version", action="store_true")
     args = parser.parse_args()
 
     repo = os.path.abspath(args.repo)
@@ -523,6 +525,10 @@ def main():
         return
     if args.print_name:
         print(manifest.get("name") or os.path.basename(repo))
+        return
+
+    if args.print_version:
+        print(manifest.get("version") or "0.0.0")
         return
 
     info(f"{manifest.get('name', repo)}: Unity {unity}")
