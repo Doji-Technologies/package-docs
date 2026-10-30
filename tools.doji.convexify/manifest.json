@@ -1,0 +1,259 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/package-docs/package-docs/packages/tools.doji.convexify/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.ConvexDecomposition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.ConvexDecomposition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.ConvexDecomposition",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.ConvexDecomposition.yml\" sourcestartlinenumber=\"1\">Contains the results of a convex decomposition for a given mesh.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.ConvexDecompositionHandle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.ConvexDecompositionHandle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.ConvexDecompositionHandle",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.ConvexDecompositionHandle.yml\" sourcestartlinenumber=\"1\">A scheduled convex decomposition. Get it from <xref href=\"Doji.Convexify.VHACD.Schedule(Unity.Collections.NativeArray%7bUnity.Mathematics.float3%7d%2cUnity.Collections.NativeArray%7bSystem.Int32%7d%2cUnity.Jobs.JobHandle)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.ConvexHull.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.ConvexHull.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.ConvexHull",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.ConvexHull.yml\" sourcestartlinenumber=\"1\">A simple class that represents a convex hull as a triangle mesh.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.ConvexHullExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.ConvexHullExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.ConvexHullExtensions",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.ConvexHullExtensions.yml\" sourcestartlinenumber=\"1\">Extensions to extract Mesh/Collider objects from a given <xref href=\"Doji.Convexify.ConvexHull\" data-throw-if-not-resolved=\"false\"></xref></p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.FillMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.FillMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.FillMode",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.FillMode.yml\" sourcestartlinenumber=\"1\">This enumeration determines how the voxels as filled to create a solid\nobject. The default should be 'FLOOD_FILL' which generally works fine\nfor closed meshes. However, if the mesh is not watertight, then using\nRAYCAST_FILL may be preferable as it will determine if a voxel is part\nof the interior of the source mesh by raycasting around it.</p>\n<p sourcefile=\"api/Doji.Convexify.FillMode.yml\" sourcestartlinenumber=\"7\">Finally, there are some cases where you might actually want a convex\ndecomposition to treat the source mesh as being hollow. If that is the\ncase you can pass in 'SURFACE_ONLY' and then the convex decomposition\nwill converge only onto the 'skin' of the surface mesh.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.NativeConvexDecomposition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.NativeConvexDecomposition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.NativeConvexDecomposition",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.NativeConvexDecomposition.yml\" sourcestartlinenumber=\"1\">The result of a convex decomposition in native arrays, for use in jobs and with <xref href=\"UnityEngine.Mesh.MeshData\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.NativeConvexHull.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.NativeConvexHull.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.NativeConvexHull",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.NativeConvexHull.yml\" sourcestartlinenumber=\"1\">One convex hull of a <xref href=\"Doji.Convexify.NativeConvexDecomposition\" data-throw-if-not-resolved=\"false\"></xref>: its ranges in the shared arrays and its properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.Parameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.Parameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.Parameters",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.Parameters.yml\" sourcestartlinenumber=\"1\">This class provides the parameters controlling the convex decomposition operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.VHACD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.VHACD.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify.VHACD",
+      "Summary": "<p sourcefile=\"api/Doji.Convexify.VHACD.yml\" sourcestartlinenumber=\"1\">Computes convex decompositions of meshes and makes colliders from them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.Convexify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.Convexify.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.Convexify",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/convexify_header.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/convexify_header.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/doji.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/doji.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Getting Started </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Getting Started ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>Welcome to the MobileSAM package! This package allows you to perform segmentation tasks in Unity using MobileSAM models. Below is a quick guide on how to get started with this package, including code samples to help you integrate it into your Unity project.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#get-the-models">Get the Models</a></li>
+<li><a href="#basic-setup">Basic Setup</a></li>
+<li><a href="#performing-segmentation">Performing Segmentation</a></li>
+<li><a href="#full-example">Full Example</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Import the MobileSAM package into your Unity project via OpenUPM.</li>
+</ol>
+<p>In <code>Edit -&gt; Project Settings -&gt; Package Manager</code>
+add a new scoped registry:</p>
+<p><code>Name: Doji</code>
+<code>URL: https://package.openupm.com</code>
+<code>Scope(s): com.doji, tools.doji</code></p>
+<p>In the Package Manager install <code>com.doji.mobilesam</code> either by name or select it in the list under <code>Package Manager -&gt; My Registries</code></p>
+<p>MobileSAM requires Unity 6000.3 or later. Package Manager also installs Inference Engine and AI Model Hub (<code>tools.doji.hf-hub</code>).</p>
+<h2 id="get-the-models">Get the Models</h2>
+<p>The package does not contain model files. It loads the encoder and decoder from the Hugging Face repository
+<a href="https://huggingface.co/julienkay/sentis-MobileSAM">julienkay/sentis-MobileSAM</a> through AI Model Hub.</p>
+<ol>
+<li>Open <code>Window &gt; AI Model Hub</code>.</li>
+<li>Select <code>julienkay/sentis-MobileSAM</code> and click <strong>Download &amp; Import</strong>.</li>
+</ol>
+<p>Builds bundle the imported models by default. To download them in the player instead, see the
+<a href="https://docs.doji-tech.com/tools.doji.hf-hub/manual/getting-started-project-users.html">AI Model Hub manual</a>. A player that downloads ONNX models also needs the ONNX Model Loader
+package (<code>tools.doji.onnx-model-loader</code>) to convert them.</p>
+<h2 id="basic-setup">Basic Setup</h2>
+<p>To begin using MobileSAM, you need to create an instance of the <code>MobileSAM</code> class. The instance will handle loading the models and initializing the segmentation process.</p>
+<p><code>CreateAsync</code> works on every platform, also when the models are downloaded at runtime:</p>
+<pre><code class="lang-csharp">using Doji.AI.Segmentation;
+
+MobileSAM mobileSAMPredictor = await MobileSAM.CreateAsync();
+</code></pre>
+<p>The constructor loads the models without waiting. It works in the Editor and for bundled models on Windows,
+macOS, Linux and iOS:</p>
+<pre><code class="lang-csharp">MobileSAM mobileSAMPredictor = new MobileSAM();
+</code></pre>
+<h2 id="performing-segmentation">Performing Segmentation</h2>
+<p>To perform segmentation on an image, you need to provide the input image as a <code>Texture</code> and provide point prompts that guide the segmentation process.</p>
+<h3 id="setting-an-image-for-segmentation">Setting an Image for Segmentation</h3>
+<p>Before running the segmentation, you must set the image using the <a href="xref:Doji.AI.Segmentation.MobileSAM.SetImage(Texture)">SetImage(Texture)</a> method:</p>
+<pre><code class="lang-csharp">_mobileSAMPredictor.SetImage(TestImage);
+</code></pre>
+<p>This method processes the image and prepares it for segmentation.</p>
+<h3 id="predicting-masks">Predicting Masks</h3>
+<p>To predict masks, use the <a class="xref" href="../api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Predict_System_Single___System_Single___">Predict(float[], float[])</a> method:</p>
+<pre><code class="lang-csharp">_mobileSAMPredictor.Predict(pointCoords, pointLabels);
+</code></pre>
+<ul>
+<li><code>pointCoords</code>: An array of point coordinates <code>[x1, y1, x2, y2, ...]</code> in pixel values.</li>
+<li><code>pointLabels</code>: An array of labels corresponding to each point (1 for foreground, 0 for background).</li>
+</ul>
+<p><strong>Note</strong>: Currently, the <code>box</code> and <code>maskInput</code> parameters are not yet supported.</p>
+<h3 id="retrieving-results">Retrieving Results</h3>
+<p>The segmentation result is stored in the <code>Result</code> property:</p>
+<pre><code class="lang-csharp">RenderTexture resultTexture = _mobileSAMPredictor.Result;
+</code></pre>
+<p>You can then use this <code>RenderTexture</code> in your Unity application, for example, to display it on a UI element or apply it to a material.</p>
+<h3 id="cleaning-up">Cleaning Up</h3>
+<p>Always dispose of the <code>MobileSAM</code> instance when you're done using it to free up resources:</p>
+<pre><code class="lang-csharp">_mobileSAMPredictor.Dispose();
+</code></pre>
+<h2 id="full-example">Full Example</h2>
+<p>Here's a complete example of setting up and using the MobileSAM predictor in a Unity script:</p>
+<pre><code class="lang-csharp">using UnityEngine;
+using Doji.AI.Segmentation;
+
+public class SegmentationExample : MonoBehaviour
+{
+    private MobileSAM _mobileSAMPredictor;
+    public Texture TestImage;
+    public RenderTexture Result;
+
+    private async void Start()
+    {
+        // Load the models from AI Model Hub and initialize the MobileSAM predictor
+        _mobileSAMPredictor = await MobileSAM.CreateAsync();
+        
+        // Set the image for segmentation
+        _mobileSAMPredictor.SetImage(TestImage);
+        
+        // Perform segmentation
+        DoSegmentation();
+    }
+
+    private void DoSegmentation()
+    {
+        if (TestImage == null) {
+            Debug.LogError(&quot;TestImage is null. Assign a texture to TestImage.&quot;);
+            return;
+        }
+
+        // Example prompt: a single point in the middle of the image
+        float[] pointCoords = new float[] { TestImage.width / 2f, TestImage.height / 2f };
+        float[] pointLabels = new float[] { 1f };  // 1 for foreground point
+
+        // Perform segmentation
+        _mobileSAMPredictor.Predict(pointCoords, pointLabels);
+
+        // Retrieve the result
+        Result = _mobileSAMPredictor.Result;
+        
+        // Use the result texture (e.g., display on UI, apply to a material, etc.)
+    }
+
+    private void OnDestroy()
+    {
+        // Clean up resources
+        _mobileSAMPredictor.Dispose();
+    }
+}
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Scripting API </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Scripting API ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="scripting-api">Scripting API</h1>
+
+<p>Editor scripts can drive the same generation pipeline as the package-authoring windows through <code>Doji.PackageAuthoring.PackageAuthoringApi</code>.</p>
+<p>Use this entry point when you want to automate project or package scaffolding from editor code without opening the editor windows manually.</p>
+<h2 id="namespace-and-types">Namespace And Types</h2>
+<p>Import these namespaces in your editor script:</p>
+<pre><code class="lang-csharp">using Doji.PackageAuthoring;
+using Doji.PackageAuthoring.Models;
+</code></pre>
+<p>The main public types are:</p>
+<ul>
+<li><code>PackageAuthoringApi</code></li>
+<li><code>ProjectSettings</code></li>
+<li><code>PackageSettings</code></li>
+<li><code>RepoSettings</code></li>
+<li><code>PackageDependencyList</code></li>
+<li><code>PackageDependencyEntry</code></li>
+<li><code>PreferredEditor</code></li>
+<li><code>LicenseType</code></li>
+</ul>
+<h2 id="generate-a-standalone-project">Generate A Standalone Project</h2>
+<p>Use <code>PackageAuthoringApi.GenerateProject(...)</code> when you only want a generated Unity project.</p>
+<pre><code class="lang-csharp">using Doji.PackageAuthoring;
+using Doji.PackageAuthoring.Models;
+
+ProjectSettings project = new ProjectSettings {
+    CompanyName = &quot;Doji&quot;,
+    ProductName = &quot;My Game&quot;,
+    Version = &quot;1.0.0&quot;,
+    PreferredEditor = PreferredEditor.Rider,
+    TargetLocation = &quot;../Generated&quot;
+};
+
+project.IncludedPackages.Items.Add(new PackageDependencyEntry {
+    PackageName = &quot;com.unity.addressables&quot;,
+    Version = &quot;2.7.4&quot;
+});
+
+string projectPath = PackageAuthoringApi.GenerateProject(project);
+</code></pre>
+<p>This creates a standalone project at:</p>
+<p><code>&lt;Target Location&gt;/&lt;Project Name&gt;</code></p>
+<h2 id="generate-a-package-repository">Generate A Package Repository</h2>
+<p>Use <code>PackageAuthoringApi.GeneratePackage(...)</code> when you want:</p>
+<ul>
+<li>a repository root</li>
+<li>a generated package folder</li>
+<li>optional docs, samples, editor, and tests folders</li>
+<li>a companion Unity project under <code>projects/&lt;Project Name&gt;</code></li>
+</ul>
+<pre><code class="lang-csharp">using Doji.PackageAuthoring;
+using Doji.PackageAuthoring.Models;
+
+ProjectSettings project = new ProjectSettings {
+    CompanyName = &quot;Doji&quot;,
+    ProductName = &quot;My Package Sandbox&quot;,
+    Version = &quot;1.0.0&quot;,
+    PreferredEditor = PreferredEditor.Rider,
+    TargetLocation = &quot;../Generated&quot;
+};
+
+PackageSettings package = new PackageSettings {
+    PackageName = &quot;com.doji.mypackage&quot;,
+    PackageDisplayName = &quot;My Package&quot;,
+    AssemblyName = &quot;Doji.MyPackage&quot;,
+    NamespaceName = &quot;Doji.MyPackage&quot;,
+    Description = &quot;Example generated package.&quot;,
+    CompanyName = &quot;Doji&quot;,
+    CreateDocsFolder = true,
+    CreateSamplesFolder = true,
+    CreateEditorFolder = true
+};
+
+RepoSettings repo = new RepoSettings {
+    CopyrightHolder = &quot;Doji&quot;,
+    LicenseType = LicenseType.MIT,
+    InitializeGitRepository = true,
+    IncludeReadme = true,
+    RepositoryUrl = &quot;https://github.com/doji/{{PACKAGE_NAME}}&quot;
+};
+
+string repositoryPath = PackageAuthoringApi.GeneratePackage(project, package, repo);
+</code></pre>
+<p>This creates a repository at:</p>
+<p><code>&lt;Target Location&gt;/&lt;Package Identifier&gt;</code></p>
+<p>The companion project is generated at:</p>
+<p><code>&lt;Target Location&gt;/&lt;Package Identifier&gt;/projects/&lt;Project Name&gt;</code></p>
+<h2 id="open-the-generated-project-automatically">Open The Generated Project Automatically</h2>
+<p>Both generation methods accept an optional <code>openProjectAfterCreation</code> argument.</p>
+<pre><code class="lang-csharp">string projectPath = PackageAuthoringApi.GenerateProject(project, openProjectAfterCreation: true);
+</code></pre>
+<p>For package generation, this opens the generated companion project.</p>
+<h2 id="save-or-reset-project-scoped-settings">Save Or Reset Project-Scoped Settings</h2>
+<p><code>PackageAuthoringApi</code> also exposes the project-settings helpers used by the settings UI:</p>
+<ul>
+<li><code>PackageAuthoringApi.SaveAllProjectSettings()</code> writes the editable package-authoring settings assets back into <code>ProjectSettings</code>.</li>
+<li><code>PackageAuthoringApi.ReapplyAllTemplateDefaults()</code> restores the built-in template content and then saves those settings assets.</li>
+</ul>
+<h2 id="template-resolution-behavior">Template Resolution Behavior</h2>
+<p>The scripting API uses the same template settings and generation behavior as the editor windows.</p>
+<p>That means:</p>
+<ul>
+<li>generated <code>README.md</code>, <code>AGENTS.md</code>, <code>LICENSE</code>, and DocFX files use the current project-scoped template settings</li>
+<li>tokenized values such as <code>{{PACKAGE_NAME}}</code>, <code>{{PROJECT_NAME}}</code>, and <code>{{NAMESPACE_NAME}}</code> are resolved from the settings objects you pass in</li>
+<li>package generation uses the same optional folder toggles and companion-project manifest behavior as the package creation wizard</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

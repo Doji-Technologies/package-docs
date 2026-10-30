@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Manual </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Manual ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="manual">Manual</h1>
+
+<p><img src="../images/manual/documentation-home-hero.webp" alt="Manual overview"></p>
+<p><code>tools.doji.package-authoring</code> provides Unity editor tooling for scaffolding reusable UPM packages, companion Unity projects, and the repository files that support them.</p>
+<h2 id="manual-contents">Manual Contents</h2>
+<ul>
+<li>understand the main repository-generation workflow</li>
+<li>look up what a specific wizard setting changes</li>
+<li>configure project defaults or reusable presets</li>
+<li>customize generated readmes, licenses, AGENTS files, or DocFX files</li>
+<li>understand what the generated companion or standalone Unity projects contain</li>
+</ul>
+<h2 id="how-the-package-is-organized">How The Package Is Organized</h2>
+<p>The package is centered around two editor windows under <code>Window &gt; Package Authoring</code>:</p>
+<ul>
+<li><code>Window &gt; Package Authoring &gt; Create Package...</code> creates a repository that contains a UPM package, optional supporting folders, and a companion Unity project</li>
+<li><code>Window &gt; Package Authoring &gt; Create Project...</code> creates a standalone Unity project from the shared project defaults</li>
+</ul>
+<p>The package also adds project-scoped defaults and template editors under <code>Project Settings &gt; Doji &gt; Package Authoring</code>.</p>
+<h2 id="read-by-goal">Read By Goal</h2>
+<ul>
+<li><a href="package-creation-wizard.html">Package Creation Wizard</a>: generation flow and repository shape</li>
+<li><a href="package-creation-wizard-settings.html">Package Creation Wizard Settings</a>: field-by-field reference for the main wizard</li>
+<li><a href="defaults-and-presets.html">Defaults And Presets</a>: project defaults, preset assets, and how they relate</li>
+<li><a href="templates.html">Templates</a>: generated file customization</li>
+<li><a href="projects.html">Companion And Standalone Projects</a>: generated Unity project structure and flow differences</li>
+<li><a href="scripting-api.html">Scripting API</a>: automate package or project generation from editor scripts</li>
+</ul>
+<h2 id="three-concepts-to-keep-in-mind">Three Concepts To Keep In Mind</h2>
+<h3 id="defaults">Defaults</h3>
+<p>The settings page at <code>Project Settings &gt; Doji &gt; Package Authoring</code> stores the baseline values used when a new wizard window opens. These defaults are saved per Unity project.</p>
+<h3 id="presets">Presets</h3>
+<p>Preset assets capture reusable authoring configurations. In the package creation wizard, the package/repository side and the companion-project side each have their own preset button so you can apply only the relevant portion of a preset.</p>
+<h3 id="templates">Templates</h3>
+<p>Generated text files such as <code>README.md</code>, <code>AGENTS.md</code>, <code>LICENSE</code>, and the DocFX scaffold are backed by project-scoped templates. Field values decide the data. Templates decide how that data is rendered into files.</p>
+<h2 id="api-reference">API Reference</h2>
+<p>The <a href="../api/index.html">Scripting API</a> documents the editor-facing types exposed by the package.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

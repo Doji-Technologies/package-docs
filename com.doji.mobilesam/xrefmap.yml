@@ -1,0 +1,239 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Doji.AI.Segmentation
+  name: Doji.AI.Segmentation
+  href: api/Doji.AI.Segmentation.html
+  commentId: N:Doji.AI.Segmentation
+  fullName: Doji.AI.Segmentation
+  nameWithType: Doji.AI.Segmentation
+- uid: Doji.AI.Segmentation.DecoderOutput
+  name: DecoderOutput
+  href: api/Doji.AI.Segmentation.DecoderOutput.html
+  commentId: T:Doji.AI.Segmentation.DecoderOutput
+  fullName: Doji.AI.Segmentation.DecoderOutput
+  nameWithType: DecoderOutput
+- uid: Doji.AI.Segmentation.DecoderOutput.#ctor(Tensor,Tensor,Tensor)
+  name: DecoderOutput(Tensor, Tensor, Tensor)
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput__ctor_Tensor_Tensor_Tensor_
+  commentId: M:Doji.AI.Segmentation.DecoderOutput.#ctor(Tensor,Tensor,Tensor)
+  name.vb: New(Tensor, Tensor, Tensor)
+  fullName: Doji.AI.Segmentation.DecoderOutput.DecoderOutput(Tensor, Tensor, Tensor)
+  fullName.vb: Doji.AI.Segmentation.DecoderOutput.New(Tensor, Tensor, Tensor)
+  nameWithType: DecoderOutput.DecoderOutput(Tensor, Tensor, Tensor)
+  nameWithType.vb: DecoderOutput.New(Tensor, Tensor, Tensor)
+- uid: Doji.AI.Segmentation.DecoderOutput.#ctor*
+  name: DecoderOutput
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput__ctor_
+  commentId: Overload:Doji.AI.Segmentation.DecoderOutput.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Doji.AI.Segmentation.DecoderOutput.DecoderOutput
+  fullName.vb: Doji.AI.Segmentation.DecoderOutput.New
+  nameWithType: DecoderOutput.DecoderOutput
+  nameWithType.vb: DecoderOutput.New
+- uid: Doji.AI.Segmentation.DecoderOutput.IoUPredictions
+  name: IoUPredictions
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput_IoUPredictions
+  commentId: P:Doji.AI.Segmentation.DecoderOutput.IoUPredictions
+  fullName: Doji.AI.Segmentation.DecoderOutput.IoUPredictions
+  nameWithType: DecoderOutput.IoUPredictions
+- uid: Doji.AI.Segmentation.DecoderOutput.IoUPredictions*
+  name: IoUPredictions
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput_IoUPredictions_
+  commentId: Overload:Doji.AI.Segmentation.DecoderOutput.IoUPredictions
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.DecoderOutput.IoUPredictions
+  nameWithType: DecoderOutput.IoUPredictions
+- uid: Doji.AI.Segmentation.DecoderOutput.LowResMasks
+  name: LowResMasks
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput_LowResMasks
+  commentId: P:Doji.AI.Segmentation.DecoderOutput.LowResMasks
+  fullName: Doji.AI.Segmentation.DecoderOutput.LowResMasks
+  nameWithType: DecoderOutput.LowResMasks
+- uid: Doji.AI.Segmentation.DecoderOutput.LowResMasks*
+  name: LowResMasks
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput_LowResMasks_
+  commentId: Overload:Doji.AI.Segmentation.DecoderOutput.LowResMasks
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.DecoderOutput.LowResMasks
+  nameWithType: DecoderOutput.LowResMasks
+- uid: Doji.AI.Segmentation.DecoderOutput.Masks
+  name: Masks
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput_Masks
+  commentId: P:Doji.AI.Segmentation.DecoderOutput.Masks
+  fullName: Doji.AI.Segmentation.DecoderOutput.Masks
+  nameWithType: DecoderOutput.Masks
+- uid: Doji.AI.Segmentation.DecoderOutput.Masks*
+  name: Masks
+  href: api/Doji.AI.Segmentation.DecoderOutput.html#Doji_AI_Segmentation_DecoderOutput_Masks_
+  commentId: Overload:Doji.AI.Segmentation.DecoderOutput.Masks
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.DecoderOutput.Masks
+  nameWithType: DecoderOutput.Masks
+- uid: Doji.AI.Segmentation.MobileSAM
+  name: MobileSAM
+  href: api/Doji.AI.Segmentation.MobileSAM.html
+  commentId: T:Doji.AI.Segmentation.MobileSAM
+  fullName: Doji.AI.Segmentation.MobileSAM
+  nameWithType: MobileSAM
+- uid: Doji.AI.Segmentation.MobileSAM.#ctor(BackendType)
+  name: MobileSAM(BackendType)
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM__ctor_BackendType_
+  commentId: M:Doji.AI.Segmentation.MobileSAM.#ctor(BackendType)
+  name.vb: New(BackendType)
+  fullName: Doji.AI.Segmentation.MobileSAM.MobileSAM(BackendType)
+  fullName.vb: Doji.AI.Segmentation.MobileSAM.New(BackendType)
+  nameWithType: MobileSAM.MobileSAM(BackendType)
+  nameWithType.vb: MobileSAM.New(BackendType)
+- uid: Doji.AI.Segmentation.MobileSAM.#ctor(Model,Model,BackendType)
+  name: MobileSAM(Model, Model, BackendType)
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM__ctor_Model_Model_BackendType_
+  commentId: M:Doji.AI.Segmentation.MobileSAM.#ctor(Model,Model,BackendType)
+  name.vb: New(Model, Model, BackendType)
+  fullName: Doji.AI.Segmentation.MobileSAM.MobileSAM(Model, Model, BackendType)
+  fullName.vb: Doji.AI.Segmentation.MobileSAM.New(Model, Model, BackendType)
+  nameWithType: MobileSAM.MobileSAM(Model, Model, BackendType)
+  nameWithType.vb: MobileSAM.New(Model, Model, BackendType)
+- uid: Doji.AI.Segmentation.MobileSAM.#ctor*
+  name: MobileSAM
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM__ctor_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Doji.AI.Segmentation.MobileSAM.MobileSAM
+  fullName.vb: Doji.AI.Segmentation.MobileSAM.New
+  nameWithType: MobileSAM.MobileSAM
+  nameWithType.vb: MobileSAM.New
+- uid: Doji.AI.Segmentation.MobileSAM.Backend
+  name: Backend
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Backend
+  commentId: P:Doji.AI.Segmentation.MobileSAM.Backend
+  fullName: Doji.AI.Segmentation.MobileSAM.Backend
+  nameWithType: MobileSAM.Backend
+- uid: Doji.AI.Segmentation.MobileSAM.Backend*
+  name: Backend
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Backend_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.Backend
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.Backend
+  nameWithType: MobileSAM.Backend
+- uid: Doji.AI.Segmentation.MobileSAM.CreateAsync(BackendType,System.IProgress{DownloadProgress},System.Threading.CancellationToken)
+  name: CreateAsync(BackendType, IProgress<DownloadProgress>, CancellationToken)
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_CreateAsync_BackendType_System_IProgress_DownloadProgress__System_Threading_CancellationToken_
+  commentId: M:Doji.AI.Segmentation.MobileSAM.CreateAsync(BackendType,System.IProgress{DownloadProgress},System.Threading.CancellationToken)
+  name.vb: CreateAsync(BackendType, IProgress(Of DownloadProgress), CancellationToken)
+  fullName: Doji.AI.Segmentation.MobileSAM.CreateAsync(BackendType, System.IProgress<DownloadProgress>, System.Threading.CancellationToken)
+  fullName.vb: Doji.AI.Segmentation.MobileSAM.CreateAsync(BackendType, System.IProgress(Of DownloadProgress), System.Threading.CancellationToken)
+  nameWithType: MobileSAM.CreateAsync(BackendType, IProgress<DownloadProgress>, CancellationToken)
+  nameWithType.vb: MobileSAM.CreateAsync(BackendType, IProgress(Of DownloadProgress), CancellationToken)
+- uid: Doji.AI.Segmentation.MobileSAM.CreateAsync*
+  name: CreateAsync
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_CreateAsync_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.CreateAsync
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.CreateAsync
+  nameWithType: MobileSAM.CreateAsync
+- uid: Doji.AI.Segmentation.MobileSAM.Decoder
+  name: Decoder
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Decoder
+  commentId: P:Doji.AI.Segmentation.MobileSAM.Decoder
+  fullName: Doji.AI.Segmentation.MobileSAM.Decoder
+  nameWithType: MobileSAM.Decoder
+- uid: Doji.AI.Segmentation.MobileSAM.Decoder*
+  name: Decoder
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Decoder_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.Decoder
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.Decoder
+  nameWithType: MobileSAM.Decoder
+- uid: Doji.AI.Segmentation.MobileSAM.Dispose
+  name: Dispose()
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Dispose
+  commentId: M:Doji.AI.Segmentation.MobileSAM.Dispose
+  fullName: Doji.AI.Segmentation.MobileSAM.Dispose()
+  nameWithType: MobileSAM.Dispose()
+- uid: Doji.AI.Segmentation.MobileSAM.Dispose*
+  name: Dispose
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Dispose_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.Dispose
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.Dispose
+  nameWithType: MobileSAM.Dispose
+- uid: Doji.AI.Segmentation.MobileSAM.Encoder
+  name: Encoder
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Encoder
+  commentId: P:Doji.AI.Segmentation.MobileSAM.Encoder
+  fullName: Doji.AI.Segmentation.MobileSAM.Encoder
+  nameWithType: MobileSAM.Encoder
+- uid: Doji.AI.Segmentation.MobileSAM.Encoder*
+  name: Encoder
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Encoder_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.Encoder
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.Encoder
+  nameWithType: MobileSAM.Encoder
+- uid: Doji.AI.Segmentation.MobileSAM.OutputFormat
+  name: OutputFormat
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_OutputFormat
+  commentId: P:Doji.AI.Segmentation.MobileSAM.OutputFormat
+  fullName: Doji.AI.Segmentation.MobileSAM.OutputFormat
+  nameWithType: MobileSAM.OutputFormat
+- uid: Doji.AI.Segmentation.MobileSAM.OutputFormat*
+  name: OutputFormat
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_OutputFormat_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.OutputFormat
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.OutputFormat
+  nameWithType: MobileSAM.OutputFormat
+- uid: Doji.AI.Segmentation.MobileSAM.Predict(System.Single[],System.Single[])
+  name: Predict(float[], float[])
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Predict_System_Single___System_Single___
+  commentId: M:Doji.AI.Segmentation.MobileSAM.Predict(System.Single[],System.Single[])
+  name.vb: Predict(Single(), Single())
+  fullName: Doji.AI.Segmentation.MobileSAM.Predict(float[], float[])
+  fullName.vb: Doji.AI.Segmentation.MobileSAM.Predict(Single(), Single())
+  nameWithType: MobileSAM.Predict(float[], float[])
+  nameWithType.vb: MobileSAM.Predict(Single(), Single())
+- uid: Doji.AI.Segmentation.MobileSAM.Predict*
+  name: Predict
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Predict_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.Predict
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.Predict
+  nameWithType: MobileSAM.Predict
+- uid: Doji.AI.Segmentation.MobileSAM.Result
+  name: Result
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Result
+  commentId: P:Doji.AI.Segmentation.MobileSAM.Result
+  fullName: Doji.AI.Segmentation.MobileSAM.Result
+  nameWithType: MobileSAM.Result
+- uid: Doji.AI.Segmentation.MobileSAM.Result*
+  name: Result
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_Result_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.Result
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.Result
+  nameWithType: MobileSAM.Result
+- uid: Doji.AI.Segmentation.MobileSAM.SetImage(Tensor,System.ValueTuple{System.Int32,System.Int32})
+  name: SetImage(Tensor, (int height, int width))
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_SetImage_Tensor_System_ValueTuple_System_Int32_System_Int32__
+  commentId: M:Doji.AI.Segmentation.MobileSAM.SetImage(Tensor,System.ValueTuple{System.Int32,System.Int32})
+  name.vb: SetImage(Tensor, (height As Integer, width As Integer))
+  fullName: Doji.AI.Segmentation.MobileSAM.SetImage(Tensor, (int height, int width))
+  fullName.vb: Doji.AI.Segmentation.MobileSAM.SetImage(Tensor, (height As Integer, width As Integer))
+  nameWithType: MobileSAM.SetImage(Tensor, (int height, int width))
+  nameWithType.vb: MobileSAM.SetImage(Tensor, (height As Integer, width As Integer))
+- uid: Doji.AI.Segmentation.MobileSAM.SetImage(UnityEngine.Texture)
+  name: SetImage(Texture)
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_SetImage_UnityEngine_Texture_
+  commentId: M:Doji.AI.Segmentation.MobileSAM.SetImage(UnityEngine.Texture)
+  fullName: Doji.AI.Segmentation.MobileSAM.SetImage(UnityEngine.Texture)
+  nameWithType: MobileSAM.SetImage(Texture)
+- uid: Doji.AI.Segmentation.MobileSAM.SetImage*
+  name: SetImage
+  href: api/Doji.AI.Segmentation.MobileSAM.html#Doji_AI_Segmentation_MobileSAM_SetImage_
+  commentId: Overload:Doji.AI.Segmentation.MobileSAM.SetImage
+  isSpec: "True"
+  fullName: Doji.AI.Segmentation.MobileSAM.SetImage
+  nameWithType: MobileSAM.SetImage

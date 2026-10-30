@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class BuildInfo </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class BuildInfo ">
+    
+    <meta name="description" content="This class stores build context that is used for the process of generating an .msi installer. This includes information about the build binaries of the generated Windows Standalone Player and information about the WiX build process.">
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="WiX.BuildInfo">
+
+
+
+  <h1 id="WiX_BuildInfo" data-uid="WiX.BuildInfo" class="text-break">Class BuildInfo</h1>
+  <div class="markdown level0 summary"><p>This class stores build context that is used for the process of generating an .msi installer.<br>
+This includes information about the build binaries of the generated Windows Standalone Player
+and information about the WiX build process.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">BuildInfo</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WiX.html">WiX</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="WiX_BuildInfo_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class BuildInfo</code></pre>
+  </div>
+  <h5 id="WiX_BuildInfo_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Among other things this information is used to deal with various limitations of Windows Installer technology.
+Two of these being, that the overall size of an .msi installer can not be larger than 2GB
+if you want the source files to be embedded inside the msi as a .cab archive.
+Also, individual files can not be larger than 2GB in general.</p>
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <a id="WiX_BuildInfo__ctor_" data-uid="WiX.BuildInfo.#ctor*"></a>
+  <h4 id="WiX_BuildInfo__ctor_System_String_WiX_Platform_" data-uid="WiX.BuildInfo.#ctor(System.String,WiX.Platform)">BuildInfo(string, Platform)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BuildInfo(string buildDirectory, Platform platform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">buildDirectory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="WiX.Platform.html">Platform</a></td>
+        <td><span class="parametername">platform</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo__ctor_" data-uid="WiX.BuildInfo.#ctor*"></a>
+  <h4 id="WiX_BuildInfo__ctor_UnityEditor_Build_Reporting_BuildReport_" data-uid="WiX.BuildInfo.#ctor(UnityEditor.Build.Reporting.BuildReport)">BuildInfo(BuildReport)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BuildInfo(BuildReport report)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BuildReport</span></td>
+        <td><span class="parametername">report</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <a id="WiX_BuildInfo_BuildDirectory_" data-uid="WiX.BuildInfo.BuildDirectory*"></a>
+  <h4 id="WiX_BuildInfo_BuildDirectory" data-uid="WiX.BuildInfo.BuildDirectory">BuildDirectory</h4>
+  <div class="markdown level1 summary"><p>The build directory of the Unity build for which to generate an installer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BuildDirectory { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo_BuildSize_" data-uid="WiX.BuildInfo.BuildSize*"></a>
+  <h4 id="WiX_BuildInfo_BuildSize" data-uid="WiX.BuildInfo.BuildSize">BuildSize</h4>
+  <div class="markdown level1 summary"><p>The total size of all files in the build in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long BuildSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo_InstallerResult_" data-uid="WiX.BuildInfo.InstallerResult*"></a>
+  <h4 id="WiX_BuildInfo_InstallerResult" data-uid="WiX.BuildInfo.InstallerResult">InstallerResult</h4>
+  <div class="markdown level1 summary"><p>Tracks whether the build process successfully generated a valid .msi installer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Result InstallerResult { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WiX.Result.html">Result</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo_Platform_" data-uid="WiX.BuildInfo.Platform*"></a>
+  <h4 id="WiX_BuildInfo_Platform" data-uid="WiX.BuildInfo.Platform">Platform</h4>
+  <div class="markdown level1 summary"><p>The architecture of the application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Platform Platform { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WiX.Platform.html">Platform</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo_TargetMsiPath_" data-uid="WiX.BuildInfo.TargetMsiPath*"></a>
+  <h4 id="WiX_BuildInfo_TargetMsiPath" data-uid="WiX.BuildInfo.TargetMsiPath">TargetMsiPath</h4>
+  <div class="markdown level1 summary"><p>The location and file name to store the resulting .msi installer package at.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TargetMsiPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo_UseCompression_" data-uid="WiX.BuildInfo.UseCompression*"></a>
+  <h4 id="WiX_BuildInfo_UseCompression" data-uid="WiX.BuildInfo.UseCompression">UseCompression</h4>
+  <div class="markdown level1 summary"><p>Whether compression should be used.
+Cabinet files only support sizes up to 2GB. Hence, if the Unity build includes files larger than 2GB,
+or if the total size of all the binaries is over 2GB we create an uncompressed MSI instead, which puts
+all the source files next to the .msi as loose files instead of embedding them in the .msi file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseCompression { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <a id="WiX_BuildInfo_GetLooseFileDir_" data-uid="WiX.BuildInfo.GetLooseFileDir*"></a>
+  <h4 id="WiX_BuildInfo_GetLooseFileDir_System_IO_DirectoryInfo_System_String__" data-uid="WiX.BuildInfo.GetLooseFileDir(System.IO.DirectoryInfo,System.String@)">GetLooseFileDir(DirectoryInfo, out string)</h4>
+  <div class="markdown level1 summary"><p>Returns the path to the folder where loose files are placed for
+uncompressed installers. This will be a PFiles/PFiles64 folder
+next to the .msi file.
+Returns false if no such folder can be found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetLooseFileDir(DirectoryInfo directory, out string looseFileDir)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directoryinfo">DirectoryInfo</a></td>
+        <td><span class="parametername">directory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">looseFileDir</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="WiX_BuildInfo_ShouldUseCompression_" data-uid="WiX.BuildInfo.ShouldUseCompression*"></a>
+  <h4 id="WiX_BuildInfo_ShouldUseCompression" data-uid="WiX.BuildInfo.ShouldUseCompression">ShouldUseCompression()</h4>
+  <div class="markdown level1 summary"><p>Returns whether compression should be used when creating an .msi for the given <a class="xref" href="WiX.BuildInfo.html#WiX_BuildInfo_BuildDirectory">BuildDirectory</a>.
+See <a class="xref" href="WiX.BuildInfo.html#WiX_BuildInfo_UseCompression">UseCompression</a> for more info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShouldUseCompression()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

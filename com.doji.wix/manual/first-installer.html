@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Creating Your First Installer </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Creating Your First Installer ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="creating-your-first-installer">Creating Your First Installer</h1>
+
+<p>Once WiX is set up, creating our first installer is only a few clicks away. We have a few options for this.</p>
+<h4 id="1-enabling-automatic-creation-of-installation-packages"><strong>1. Enabling automatic creation of installation packages</strong></h4>
+<p>If you head over to the WiX Settings in the Project settings window. You'll see the option to <strong>'Automatically Create Installer on Build'</strong>. Enabling this, will generate an installer every time you do a build in Unity.</p>
+<h4 id="2-integration-into-your-own-build-pipeline"><strong>2. Integration into your own build pipeline</strong></h4>
+<p>The option above creates an installer using the Postbuild script <code>Editor/Build/Scripts/WiXPostBuild.cs</code> which automates the installer creation by integrating into the Unity build pipeline. You might not want to create an installer every time you do a build though and might even have your own code for release builds set up. In that case, feel free to use the default script as a reference. Creating an installer from code is as simple as calling <code>WiX.CreateInstaller(report);</code> where <em>'report'</em> is a <a href="https://docs.unity3d.com/ScriptReference/Build.Reporting.BuildReport.html">BuildReport</a> object that Unity passes to scripts implementing the <a href="https://docs.unity3d.com/ScriptReference/Build.IPostprocessBuildWithReport.OnPostprocessBuild.html">IPostprocessBuildWithReport</a> interface. A complete sample might look like this:</p>
+<pre><code class="lang-cs">using UnityEditor;
+using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
+
+public class MyCustomBuildProcessor : IPostprocessBuildWithReport {
+
+   public int callbackOrder { get { return 0; } }
+
+   public void OnPostprocessBuild(BuildReport report) {
+      if (!WiX.IsPlatformSupported) {
+         return;
+      }
+
+      if (report.summary.platform != BuildTarget.StandaloneWindows &amp;&amp;
+         report.summary.platform != BuildTarget.StandaloneWindows64) {
+         return;
+      }
+
+      WiX.CreateInstaller(report);
+   }
+}
+</code></pre>
+<h4 id="3-manually-creating-the-installer-from-an-existing-build"><strong>3. Manually creating the installer from an existing build</strong></h4>
+<p>(Not recommended)</p>
+<p>Creating an installation package for an existing build can be done in the <code>Advanced</code> section in the WiX for Unity Wizard and click on <code>Create installer for existing build</code>. It will prompt you to select the folder of your Unity build. Next, it will prompt you to choose a name for your installation package (.msi file). After you hit <code>Save</code>, the installer will be generated.</p>
+<p>The reason creating installers from existing builds is not optimal, is that the installer creation uses info from your Unity project settings (most notably the installers <em>UpgradeCode</em>, but also the <code>Application.version</code>), to create the installer. It would be easy to make a mistake like creating an installer with the wrong version for a past build.
+So it is recommended to create installers using Unitys BuildPipeline instead.</p>
+<h3 id="check-the-installer-result">Check the installer result</h3>
+<p><code>CreateInstaller</code> returns a <code>BuildInfo</code>.
+Check <code>InstallerResult.Success</code> before you publish the installer:</p>
+<pre><code class="lang-cs">WiX.BuildInfo info = WiX.WiX.CreateInstaller(report);
+if (!info.InstallerResult.Success) {
+    // Stop publishing this build.
+    return;
+}
+</code></pre>
+<p>After each build, the <strong>WiX Build Results</strong> window shows the result, the MSI path, and the WiX messages.
+Warnings do not stop the build. Read them to decide if they affect your installer.
+Use <strong>Copy build results</strong> to copy the full report, for example for a support request.</p>
+<p>To log the result in the Unity Console instead, disable <strong>Show Build Summary</strong> in <strong>Project Settings &gt; WiX for Unity</strong>.
+Batch-mode builds always log the result in the Console.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

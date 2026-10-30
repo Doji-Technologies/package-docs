@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Package Creation Wizard </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Package Creation Wizard ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="package-creation-wizard">Package Creation Wizard</h1>
+
+<p>The package creation wizard is the main entry point for generating a reusable package repository.</p>
+<p>Open it from <code>Window &gt; Package Authoring &gt; Create Package...</code>.</p>
+<p><img src="../images/manual/documentation-home-hero.webp" alt="Package creation wizard overview"></p>
+<h2 id="what-the-wizard-produces">What The Wizard Produces</h2>
+<p>The wizard creates a repository root named after the package identifier and then fills it with:</p>
+<ul>
+<li>a package folder whose name matches the package identifier</li>
+<li>a companion Unity project under <code>projects/&lt;Project Name&gt;</code></li>
+<li>repository root files such as <code>README.md</code>, <code>LICENSE</code>, and optionally <code>AGENTS.md</code></li>
+<li>optional package folders such as <code>Editor</code>, <code>Samples~</code>, <code>Tests</code>, and repository-level <code>docs</code></li>
+</ul>
+<p>When enabled, the wizard also initializes a git repository and can assign an <code>origin</code> remote URL.</p>
+<p>A generated repository includes the package itself, repository support files, and a companion Unity project for development and validation.</p>
+<h2 id="what-you-decide-in-the-window">What You Decide In The Window</h2>
+<p>The window is organized into four editable sections and a live preview:</p>
+<p><img src="../images/manual/package-creation-wizard-sections.webp" alt="Package creation wizard sections"></p>
+<ul>
+<li><code>Package Definition</code> controls the package manifest and package-owned folders.</li>
+<li><code>Repo Settings</code> controls repository-level files such as the license and root README.</li>
+<li><code>Companion Project</code> controls the generated Unity project that references the local package.</li>
+<li><code>Output</code> shows the resolved filesystem paths.</li>
+<li><code>Repository Layout Preview</code> shows the generated repository structure and reacts to the field you hover in the form.</li>
+</ul>
+<p>Field-by-field behavior is covered in <a href="package-creation-wizard-settings.html">Package Creation Wizard Settings</a>.</p>
+<h2 id="how-the-generation-flow-works">How The Generation Flow Works</h2>
+<p>The package definition and repository settings determine what is generated under the repository root and package folder. The companion-project section then creates a Unity project that starts from the template project's baseline and points back to the generated local package.</p>
+<p>In practice, the wizard does the following:</p>
+<ol>
+<li>Creates the repository root, package root, and companion-project root.</li>
+<li>Optionally creates the DocFX documentation scaffold under <code>docs/</code>.</li>
+<li>Creates the package runtime structure and any optional package folders.</li>
+<li>Writes package metadata such as <code>package.json</code>, <code>README.md</code>, and <code>CHANGELOG.md</code>.</li>
+<li>Copies the baseline Unity project into the companion project and patches its settings and manifest.</li>
+<li>Writes repository-level files such as <code>LICENSE</code>, <code>README.md</code>, and <code>AGENTS.md</code>.</li>
+<li>Optionally runs git initialization and creates the initial commit.</li>
+<li>Optionally opens the generated companion project in the current Unity editor.</li>
+</ol>
+<h2 id="what-the-repository-contains">What The Repository Contains</h2>
+<p>The generated output is easiest to think about in three ownership layers: package, repository, and companion project.</p>
+<h3 id="package-owned-output">Package-Owned Output</h3>
+<p>The generated package always includes:</p>
+<ul>
+<li><code>Runtime/</code></li>
+<li><code>Runtime/&lt;Assembly Name&gt;.asmdef</code></li>
+<li><code>Runtime/AssemblyInfo.cs</code></li>
+<li><code>package.json</code></li>
+<li><code>CHANGELOG.md</code></li>
+</ul>
+<p>Depending on your toggles, it can also include:</p>
+<ul>
+<li><code>README.md</code></li>
+<li><code>Editor/</code></li>
+<li><code>Editor/&lt;Assembly Name&gt;.Editor.asmdef</code></li>
+<li><code>Samples~/</code></li>
+<li><code>Samples~/&lt;Assembly Name&gt;.asmdef</code></li>
+<li><code>Samples~/00-SharedSampleAssets/</code></li>
+<li><code>Samples~/01-BasicSample/BasicSample.cs</code></li>
+<li><code>Tests/</code></li>
+</ul>
+<h3 id="repository-owned-output">Repository-Owned Output</h3>
+<p>The repository root can include:</p>
+<ul>
+<li><code>README.md</code></li>
+<li><code>LICENSE</code></li>
+<li><code>AGENTS.md</code></li>
+<li><code>docs/</code></li>
+<li><code>.git/</code> after initialization</li>
+</ul>
+<p>The <code>docs/</code> scaffold contains the DocFX configuration, root pages, API landing page, and DocFX table-of-contents files described in <a href="templates.html">Templates</a>.</p>
+<h3 id="companion-project-output">Companion Project Output</h3>
+<p>The companion project is written under <code>projects/&lt;Project Name&gt;</code>.</p>
+<p>It is built from the template project's baseline assets, packages, and project settings, then patched with:</p>
+<ul>
+<li>the current company name</li>
+<li>the current project name</li>
+<li>the current version</li>
+<li>the selected preferred editor integration package</li>
+<li>any extra included packages</li>
+<li>a local file reference to the generated package</li>
+<li>the package as a <code>testable</code> package when the package <code>Tests</code> folder is enabled</li>
+</ul>
+<h2 id="preset-buttons">Preset Buttons</h2>
+<p>The package creation wizard has two preset scopes:</p>
+<p><img src="../images/manual/package-creation-wizard-presets.webp" alt="Package wizard preset buttons"></p>
+<ul>
+<li>the <code>Package Definition</code> preset button applies package and repository values</li>
+<li>the <code>Companion Project</code> preset button applies project-facing values</li>
+</ul>
+<p>The package and repository side can change independently from the companion-project side, so the wizard keeps those preset scopes separate.</p>
+<p>You can either apply <a href="defaults-and-presets.html#project-defaults">Project Defaults</a> or custom <a href="defaults-and-presets.html#preset-assets">Presets</a>:</p>
+<p><img src="../images/manual/package-creation-wizard-presets_options.webp" alt="Package wizard preset button options"></p>
+<h2 id="output-preview">Output Preview</h2>
+<p>The <code>Output</code> section shows the resolved paths derived from the current settings:</p>
+<p><img src="../images/manual/package-creation-wizard-output-preview.webp" alt="Package wizard output and repository preview"></p>
+<ul>
+<li>target location</li>
+<li>repository root</li>
+<li>package folder</li>
+<li>companion project folder</li>
+</ul>
+<p>The preview updates as you type and catches naming mistakes before generation, especially when the package identifier or project name drives multiple folder paths.</p>
+<h2 id="before-you-click-create-package">Before You Click Create Package</h2>
+<p>Check these decisions before generation:</p>
+<ul>
+<li>the package identifier is final, because it becomes both the repository folder name and the package folder name</li>
+<li>the assembly name and namespace match your long-term code organization</li>
+<li>the companion project name is suitable for the generated <code>projects/</code> folder</li>
+<li>the optional folders reflect what you actually intend to ship or maintain</li>
+<li>the repository URL, if used, resolves correctly after token replacement</li>
+</ul>
+<p>Field-by-field behavior is covered in <a href="package-creation-wizard-settings.html">Wizard Settings</a>.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

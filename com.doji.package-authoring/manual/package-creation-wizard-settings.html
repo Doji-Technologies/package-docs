@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Package Creation Wizard Settings </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Package Creation Wizard Settings ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="package-creation-wizard-settings">Package Creation Wizard Settings</h1>
+
+<h2 id="package-definition">Package Definition</h2>
+<p><img src="../images/manual/package-definition-section.webp" alt="Package definition section"></p>
+<p>Package identity, generated package structure, and package-level metadata.</p>
+<h3 id="identifier">Identifier</h3>
+<p>The package identifier becomes the generated <code>package.json</code> <code>name</code> value. It also becomes:</p>
+<ul>
+<li>the repository root folder name</li>
+<li>the package folder name inside the repository</li>
+<li>the local package reference used by the companion project</li>
+</ul>
+<p>Use a UPM-style identifier such as <code>com.company.package</code>.</p>
+<h3 id="package-name">Package Name</h3>
+<p>This is the user-facing display name written to <code>package.json</code> as <code>displayName</code>.</p>
+<p>It is what users see in package metadata, not the filesystem package folder name.</p>
+<h3 id="assembly-name">Assembly Name</h3>
+<p>This value drives the generated asmdef names for the package runtime assembly and the optional editor and sample assemblies.</p>
+<p>Examples:</p>
+<ul>
+<li><code>Runtime/&lt;Assembly Name&gt;.asmdef</code></li>
+<li><code>Editor/&lt;Assembly Name&gt;.Editor.asmdef</code></li>
+<li><code>Samples~/&lt;Assembly Name&gt;.asmdef</code></li>
+</ul>
+<p>Choose a stable assembly name early. Renaming it later is a broader code migration.</p>
+<h3 id="namespace">Namespace</h3>
+<p>This is the root namespace used by generated source and tokenized templates.</p>
+<p>It is also used by the DocFX filter template through the <code>{{NAMESPACE_NAME}}</code> and <code>{{NAMESPACE_NAME_REGEX}}</code> tokens.</p>
+<h3 id="description">Description</h3>
+<p>The short package description is written into:</p>
+<ul>
+<li><code>package.json</code></li>
+<li>tokenized templates such as generated docs landing pages and readmes</li>
+</ul>
+<p>Keep it short enough to work well in manifest metadata.</p>
+<h3 id="company-name">Company Name</h3>
+<p>This package-facing company value is written into generated package metadata, especially the package manifest author block when author metadata is enabled.</p>
+<p>This field is separate from the companion project's company name.</p>
+<h3 id="include-author-metadata">Include Author Metadata</h3>
+<p>When enabled, the generated <code>package.json</code> includes an <code>author</code> object.</p>
+<p>When disabled:</p>
+<ul>
+<li>the nested <code>URL</code> field is hidden</li>
+<li>the nested <code>Email</code> field is hidden</li>
+<li>no <code>author</code> metadata is written</li>
+</ul>
+<h3 id="url">URL</h3>
+<p>This optional field appears only when <code>Include Author Metadata</code> is enabled.</p>
+<p>It is written into <code>package.json</code> as the author URL. The field supports the standard package-authoring template tokens.</p>
+<h3 id="email">Email</h3>
+<p>This optional field appears only when <code>Include Author Metadata</code> is enabled.</p>
+<p>It is written into <code>package.json</code> as the author email address.</p>
+<h3 id="minimum-unity-version">Minimum Unity Version</h3>
+<p>When enabled, the package manifest includes Unity version gating fields.</p>
+<p>When disabled:</p>
+<ul>
+<li>the nested <code>Major</code>, <code>Minor</code>, and <code>Release</code> fields are hidden</li>
+<li>no minimum Unity version fields are written</li>
+</ul>
+<h3 id="major">Major</h3>
+<p>The Unity major version written to the <code>unity</code> field in <code>package.json</code> when minimum Unity version support is enabled.</p>
+<h3 id="minor">Minor</h3>
+<p>The Unity minor version written to the <code>unity</code> field in <code>package.json</code> when minimum Unity version support is enabled.</p>
+<p>The manifest combines <code>Major</code> and <code>Minor</code> as <code>&lt;major&gt;.&lt;minor&gt;</code>.</p>
+<h3 id="release">Release</h3>
+<p>An optional Unity release suffix written to <code>package.json</code> as <code>unityRelease</code> when minimum Unity version support is enabled.</p>
+<p>Only needed when the package manifest must target a specific Unity release suffix.</p>
+<h3 id="documentation-url">Documentation URL</h3>
+<p>This optional value is written to <code>package.json</code> as <code>documentationUrl</code>.</p>
+<p>The field supports the standard package-authoring template tokens, so it can be built from the current package, repository, or project values.</p>
+<p>Leave it empty if you do not want a documentation URL in the manifest.</p>
+<h3 id="include-package-readme">Include Package README</h3>
+<p>When enabled, the wizard writes <code>README.md</code> inside the package root using the package README template.</p>
+<p>When disabled, the package still gets <code>package.json</code> and <code>CHANGELOG.md</code>, but no package-level readme is generated.</p>
+<h3 id="create-documentation-folder">Create Documentation Folder</h3>
+<p>When enabled, the wizard creates a repository-level <code>docs/</code> scaffold that includes:</p>
+<ul>
+<li><code>docs/docfx.json</code></li>
+<li><code>docs/docfx-pdf.json</code></li>
+<li><code>docs/filterConfig.yml</code></li>
+<li><code>docs/index.md</code></li>
+<li><code>docs/api/index.md</code></li>
+<li><code>docs/toc.yml</code></li>
+<li><code>docs/manual/toc.yml</code></li>
+<li><code>docs/pdf/toc.yml</code></li>
+<li><code>docs/api/.gitignore</code></li>
+<li><code>docs/.gitignore</code></li>
+<li>optional branding images under <code>docs/images/</code></li>
+</ul>
+<p>When disabled, no <code>docs/</code> folder is created.</p>
+<h3 id="create-samples-folder">Create Samples Folder</h3>
+<p>When enabled, the package gets:</p>
+<ul>
+<li><code>Samples~/00-SharedSampleAssets/</code></li>
+<li><code>Samples~/01-BasicSample/</code></li>
+<li><code>Samples~/01-BasicSample/BasicSample.cs</code></li>
+<li><code>Samples~/&lt;Assembly Name&gt;.asmdef</code></li>
+</ul>
+<p>The generated <code>package.json</code> also receives a <code>samples</code> block that points at the sample folders.</p>
+<p>When disabled, no <code>Samples~</code> folder or <code>samples</code> manifest entry is created.</p>
+<h3 id="create-editor-folder">Create Editor Folder</h3>
+<p>When enabled, the package gets an <code>Editor/</code> folder plus an editor-only asmdef named <code>&lt;Assembly Name&gt;.Editor.asmdef</code>.</p>
+<p>Intended for editor tooling that should live inside the generated package.</p>
+<h3 id="create-tests-folder">Create Tests Folder</h3>
+<p>When enabled, the package gets a <code>Tests/</code> folder.</p>
+<p>This also changes the companion project manifest: the package is added to the generated project's <code>testables</code> list so the package tests can run from the companion project.</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>This list writes package dependencies into the generated <code>package.json</code>.</p>
+<p>The dependency editor supports:</p>
+<ul>
+<li>add, remove, and reorder operations</li>
+<li>package-name autocomplete backed by the shared package search cache</li>
+<li>direct version entry</li>
+</ul>
+<p>Each row contains:</p>
+<ul>
+<li><code>Package name</code>: expected to be lowercase</li>
+<li><code>Version</code>: expected to follow SemVer, such as <code>1.0.0-preview.1</code></li>
+</ul>
+<p>If the current package name does not yet match a known exact package, the row can expand to show suggestions.</p>
+<h2 id="repo-settings">Repo Settings</h2>
+<p><img src="../images/manual/repo-settings-section.webp" alt="Repository settings section"></p>
+<p>Repository-root files and repository initialization behavior outside the package folder itself.</p>
+<h3 id="copyright-holder">Copyright Holder</h3>
+<p>This value is used by generated repository-level copyright and license content.</p>
+<p>If you generate an SPDX license template, it becomes the copyright holder in that file.</p>
+<h3 id="include-readme">Include README</h3>
+<p>When enabled, the wizard creates a repository root <code>README.md</code> using the repository README template.</p>
+<p>This is separate from the package README toggle in <code>Package Definition</code>.</p>
+<h3 id="open-source-license">Open Source License</h3>
+<p>This controls the generated <code>LICENSE</code> file at the repository root.</p>
+<p>The available values are:</p>
+<ul>
+<li><code>None</code>: no license file is generated</li>
+<li><code>Custom</code>: uses the editable custom license template</li>
+<li><code>MIT</code></li>
+<li><code>Apache-2.0</code></li>
+<li><code>BSD-3-Clause</code></li>
+</ul>
+<h3 id="initialize-git-repository">Initialize Git Repository</h3>
+<p>When enabled, the wizard runs repository initialization after the files are written.</p>
+<p>That process creates the git repository in the generated root and creates the initial commit.</p>
+<p>When disabled:</p>
+<ul>
+<li>no git repository is initialized</li>
+<li>the nested <code>Remote URL</code> field is hidden</li>
+</ul>
+<h3 id="remote-url">Remote URL</h3>
+<p>This optional field appears only when <code>Initialize Git Repository</code> is enabled.</p>
+<p>If provided, it is resolved through the standard template-token system and then assigned to the generated repository's <code>origin</code> remote.</p>
+<h2 id="companion-project">Companion Project</h2>
+<p>The <code>Companion Project</code> section uses the shared project settings UI, but inside the package creation wizard it intentionally hides the target location field because the companion project always lives inside the generated repository.</p>
+<p><img src="../images/manual/companion-project-section.webp" alt="Companion project section"></p>
+<p>Unity project settings for the generated companion project used for development, validation, and sample usage.</p>
+<h3 id="company-name-1">Company Name</h3>
+<p>This company value is written into the generated Unity project's settings.</p>
+<p>It is also available to tokenized templates as the project company value.</p>
+<h3 id="project-name">Project Name</h3>
+<p>This determines the companion project folder name under <code>projects/</code>.</p>
+<p>It is also used as the generated Unity product name.</p>
+<h3 id="version">Version</h3>
+<p>This single version value is reused across the generated output:</p>
+<ul>
+<li>the package manifest version</li>
+<li>the generated Unity project version</li>
+<li>tokenized templates that reference package version</li>
+</ul>
+<h3 id="included-packages">Included Packages</h3>
+<p>This foldout controls package additions for the generated companion project manifest.</p>
+<p>When expanded, it contains:</p>
+<ul>
+<li><code>Preferred Editor</code></li>
+<li>the <code>Included Packages</code> list</li>
+<li>a reminder that these packages are added on top of the template project's baseline manifest</li>
+</ul>
+<p>Collapsed state only hides the fields. It does not disable previously set values.</p>
+<h3 id="preferred-editor">Preferred Editor</h3>
+<p>This selects which Unity IDE integration package is added to the generated project manifest.</p>
+<p>The choices are:</p>
+<ul>
+<li><code>None</code></li>
+<li><code>Visual Studio</code></li>
+<li><code>Visual Studio Code</code></li>
+<li><code>Rider</code></li>
+</ul>
+<p>The generated project manifest removes any preexisting IDE packages from the baseline manifest and adds the selected one back.</p>
+<h3 id="included-packages-list">Included Packages List</h3>
+<p>These entries are merged into the generated companion project manifest after the baseline manifest and preferred editor dependency are applied.</p>
+<p>Adds packages beyond the template project's baseline setup.</p>
+<h3 id="advanced">Advanced</h3>
+<p>This foldout groups lower-frequency project options.</p>
+<p>Collapsed state hides the contained fields but preserves their values.</p>
+<h3 id="generate-agentsmd">Generate AGENTS.md</h3>
+<p>When enabled, the wizard writes a repository root <code>AGENTS.md</code> file using the repository AGENTS template.</p>
+<p>When disabled, no <code>AGENTS.md</code> file is created.</p>
+<h3 id="auto-open-after-creation">Auto-Open After Creation</h3>
+<p>This toggle sits at the bottom of the companion-project section.</p>
+<p>When enabled, the wizard attempts to open the generated companion project in the current Unity editor after generation completes.</p>
+<p>When disabled, the files are still generated, but the wizard does not launch the project.</p>
+<h2 id="output">Output</h2>
+<p>The <code>Output</code> section is read-only except for <code>Target Location</code>.</p>
+<p><img src="../images/manual/output-and-preview-section.webp" alt="Output section and repository layout preview"></p>
+<p>It shows:</p>
+<ul>
+<li><code>Target Location</code></li>
+<li><code>Repository Root</code></li>
+<li><code>Package Folder</code></li>
+<li><code>Companion Project</code></li>
+</ul>
+<p><code>Target Location</code> is the base output folder. The final repository root is computed as:</p>
+<p><code>&lt;Target Location&gt;/&lt;Identifier&gt;</code></p>
+<p>The package folder is then:</p>
+<p><code>&lt;Target Location&gt;/&lt;Identifier&gt;/&lt;Identifier&gt;</code></p>
+<p>The companion project folder is:</p>
+<p><code>&lt;Target Location&gt;/&lt;Identifier&gt;/projects/&lt;Project Name&gt;</code></p>
+<h2 id="repository-layout-preview">Repository Layout Preview</h2>
+<p>The live repository layout preview is not just decoration. It reflects the current toggle state and helps confirm which files and folders each setting will add or remove.</p>
+<p><img src="../images/manual/repository-layout-preview-detail.webp" alt="Repository layout preview detail"></p>
+<p>Hovering related fields in the form highlights the matching area of the preview, including package metadata, docs, readmes, samples, editor files, tests, and companion-project output.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

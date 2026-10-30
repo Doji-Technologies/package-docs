@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Defaults And Presets </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Defaults And Presets ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="defaults-and-presets">Defaults And Presets</h1>
+
+<p>The package-authoring tools separate persistent project defaults from reusable preset assets.</p>
+<h2 id="project-defaults">Project Defaults</h2>
+<p>Open <code>Project Settings &gt; Doji &gt; Package Authoring</code> to edit the project-wide defaults.</p>
+<p><img src="../images/manual/project-defaults-page.webp" alt="Project settings defaults page"></p>
+<p>These defaults are stored in <code>ProjectSettings/PackageAuthoringProjectSettings.asset</code> and are used whenever a wizard opens without applying a preset first.</p>
+<p>The page contains three blocks:</p>
+<ul>
+<li><code>Package Defaults</code></li>
+<li><code>Repo Defaults</code></li>
+<li><code>Project Defaults</code></li>
+</ul>
+<p>These sections mirror the models used by the package creation and project creation tools.</p>
+<h2 id="why-project-defaults-matter">Why Project Defaults Matter</h2>
+<p>Project defaults feed:</p>
+<ul>
+<li>the initial state of the package creation wizard</li>
+<li>the initial state of the project creation wizard</li>
+<li>the fallback values used when you reset a wizard section back to project defaults</li>
+</ul>
+<p>Changing project defaults does not retroactively update repositories or projects that were already generated.</p>
+<h2 id="preset-assets">Preset Assets</h2>
+<p>Preset assets let you capture a reusable authoring profile inside the Unity project.</p>
+<p>Create one from:</p>
+<ul>
+<li><code>Assets &gt; Create &gt; Doji &gt; Package Authoring Preset</code></li>
+</ul>
+<p><img src="../images/manual/package-authoring-preset-asset_create.webp" alt="Package authoring preset asset"></p>
+<p>A preset stores package, repository, and project values together, the exact same way you can author these in the package creation wizard or the default project settings. Use presets when you need more than one repeatable authoring configuration in the same Unity project.</p>
+<p><img src="../images/manual/package-authoring-preset-asset.webp" alt="Package authoring preset asset"></p>
+<h2 id="where-presets-can-be-applied">Where Presets Can Be Applied</h2>
+<h3 id="in-project-settings">In Project Settings</h3>
+<p>The title bar of <code>Project Settings &gt; Doji &gt; Package Authoring</code> includes a preset button. Applying a preset there copies the preset values into the project defaults and saves them.</p>
+<p><img src="../images/manual/project-settings-preset-menu.webp" alt="Project settings preset menu"></p>
+<h3 id="in-package-creation-wizard">In Package Creation Wizard</h3>
+<p>The wizard intentionally exposes two preset buttons:</p>
+<p><img src="../images/manual/package-creation-wizard-presets.webp" alt="Package wizard preset menu"></p>
+<ul>
+<li><code>Package Definition</code> preset button</li>
+<li><code>Companion Project</code> preset button</li>
+</ul>
+<p>The package-side button applies the preset's package defaults and repository defaults. The companion-project button applies the preset's project defaults only.</p>
+<p>This keeps repository/package concerns independent from project concerns.</p>
+<h3 id="in-project-creation-wizard">In Project Creation Wizard</h3>
+<p>The standalone project creation wizard has a preset button for the generated project settings section. Applying a preset there uses only the project-facing portion of the preset.</p>
+<h2 id="resetting-back-to-project-defaults">Resetting Back To Project Defaults</h2>
+<p>The preset menus do more than apply named preset assets. They also expose the project-default reset action for the relevant scope.</p>
+<p>Use that when you want to discard ad hoc changes in the current window and return to the saved defaults.</p>
+<h2 id="session-state-behavior">Session State Behavior</h2>
+<p>Wizard state is preserved across script recompiles within the current editor session.</p>
+<p>That means:</p>
+<ul>
+<li>changing scripts does not immediately wipe in-progress wizard input</li>
+<li>project defaults remain the source for fresh sessions</li>
+<li>presets are still an explicit apply action, not a hidden background override</li>
+</ul>
+<h2 id="when-to-use-defaults-vs-presets">When To Use Defaults Vs Presets</h2>
+<p>Use project defaults when:</p>
+<ul>
+<li>your team has one primary authoring setup for the current Unity project</li>
+<li>you want new wizard sessions to open with the same baseline values every time</li>
+</ul>
+<p>Use presets when:</p>
+<ul>
+<li>you regularly switch between multiple package families or naming schemes</li>
+<li>you want sharable configurations stored as assets</li>
+<li>you want to mix one preset for package metadata with different companion-project settings</li>
+</ul>
+<h2 id="how-this-differs-from-templates">How This Differs From Templates</h2>
+<p>Defaults and presets control values. Templates control the text files generated from those values.</p>
+<p>For example:</p>
+<ul>
+<li>a preset can change <code>Company Name</code>, <code>Package Name</code>, or <code>Documentation URL</code></li>
+<li>the template system decides how those values are rendered into files such as <code>README.md</code>, <code>AGENTS.md</code>, and <code>docs/index.md</code></li>
+</ul>
+<p>See <a href="templates.html">Templates</a> for the file-generation side of that workflow.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

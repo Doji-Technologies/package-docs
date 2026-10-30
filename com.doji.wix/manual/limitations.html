@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Maximum Installer Size </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Maximum Installer Size ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="maximum-installer-size">Maximum Installer Size</h1>
+
+<p>MSI usually packs all source files into a single, self-contained .msi file by using .cab archives. However, the .cab archive format has some size limitations:</p>
+<ul>
+<li>No one file in a CAB can exceed 2GB</li>
+<li>Maximum size of all files in one folder (compressed) 2GB</li>
+<li>Maximum size of a CAB file (compressed) 2GB</li>
+<li>Maximum number of files in a single CAB 64K:</li>
+</ul>
+<p>These are limitations of the .msi format itself and can not be worked around.</p>
+<p>(<a href="http://www.msifaq.com/a/1043.htm">Source</a>)</p>
+<p>However, especially with media-rich Unity applications, it's pretty easy to hit the 2GB limit. If that's the case for your application, you are faced with the following options:</p>
+<h4 id="1-create-an-uncompressed-msi"><strong>1. Create an Uncompressed MSI</strong></h4>
+<p>By default, if your installer contains files with a total size of more than 2 GB, an uncompressed msi installer will be created. This will not be a single-file, self-contained installer. Instead, it is an installer package with all the source files in a separate folder next to it. Here is an example of what that looks like:</p>
+<p><img src="../images/loose-files-msi.webp" alt="MSI Installation Files"></p>
+<p>Each uncompressed installer gets its own folder, named after the installer. Distribute the complete folder, for example as a .zip archive. The installer cannot install the application without the payload folder next to it.</p>
+<h4 id="2-download-content-from-the-web"><strong>2. Download Content from the Web</strong></h4>
+<p>If your application's content exceeds 2GB, looking at ways to distribute most of the content over the web is the recommended approach.
+Keeping the base application small and loading assets after installation, can be achieved using Unity's <a href="https://docs.unity3d.com/Packages/com.unity.addressables@latest/index.html">Addressable Asset System</a> for example.</p>
+<p>Keep in mind that for non-business applications, uploading to a store is most of the time the best way to go (as outlined <a href="https://www.doji-tech.com/windows-installer-for-unity-docs/html/index.html#faq">here</a>.</p>
+<h1 id="additional-details">Additional Details</h1>
+<div class="NOTE">
+<h5>Note</h5>
+<p>From the list at the top of this page, you might have noticed that even single files larger than 2GB are not natively supported by MSI. In complex projects, certain files of your Unity build (packed assets like lightmaps, texture atlases, etc.) might easily exceed 2GB. Windows Installer for Unity works around this limitation by automatically splitting such large files at build time and creating a custom action that merges these split files back together at installation time.</p>
+</div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

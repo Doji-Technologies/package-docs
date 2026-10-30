@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Templates </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Templates ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="templates">Templates</h1>
+
+<p>The package-authoring tools generate several repository and package files from project-scoped templates.</p>
+<p>Open them from <code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates</code>.</p>
+<p><img src="../images/manual/templates-landing-page.webp" alt="Templates landing page"></p>
+<h2 id="template-categories">Template Categories</h2>
+<p>The template settings are grouped into:</p>
+<ul>
+<li><code>Package</code></li>
+<li><code>Repository</code></li>
+<li><code>Documentation (DocFX)</code></li>
+</ul>
+<p>The top-level <code>Templates</code> page also shows the supported placeholder tokens that can be reused across editable templates.</p>
+<h2 id="supported-tokens">Supported Tokens</h2>
+<p>The shared token set is:</p>
+<ul>
+<li><code>{{YEAR}}</code></li>
+<li><code>{{COPYRIGHT_HOLDER}}</code></li>
+<li><code>{{PACKAGE_NAME}}</code></li>
+<li><code>{{PACKAGE_DISPLAY_NAME}}</code></li>
+<li><code>{{PACKAGE_VERSION}}</code></li>
+<li><code>{{PACKAGE_COMPANY}}</code></li>
+<li><code>{{PACKAGE_DESCRIPTION}}</code></li>
+<li><code>{{DOCUMENTATION_URL}}</code></li>
+<li><code>{{PROJECT_NAME}}</code></li>
+<li><code>{{PROJECT_COMPANY}}</code></li>
+<li><code>{{NAMESPACE_NAME}}</code></li>
+<li><code>{{NAMESPACE_NAME_REGEX}}</code></li>
+<li><code>{{ASSEMBLY_NAME}}</code></li>
+</ul>
+<p>Tokens are resolved from the current package, repository, and project settings at generation time.</p>
+<p><code>{{DOCUMENTATION_URL}}</code> uses the package <code>Documentation URL</code> setting. If that setting is empty, generated DocFX branding links fall back to <code>#</code> so the logo stays on the current page instead of pointing at an external site.</p>
+<h2 id="package-templates">Package Templates</h2>
+<p><img src="../images/manual/package-templates-page.webp" alt="Package templates page"></p>
+<p>These templates affect files generated inside the package itself or directly into generated Unity projects.</p>
+<h3 id="gitignore"><code>.gitignore</code></h3>
+<p>Path:</p>
+<ul>
+<li><code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates &gt; Package &gt; .gitignore</code></li>
+</ul>
+<p>This template is written into generated Unity projects. In the package creation flow, that means the companion project receives it. In the standalone project creation flow, the generated standalone project receives it.</p>
+<h3 id="readme"><code>README</code></h3>
+<p>Path:</p>
+<ul>
+<li><code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates &gt; Package &gt; README</code></li>
+</ul>
+<p>This template becomes the package root <code>README.md</code> when <code>Include Package README</code> is enabled.</p>
+<h2 id="repository-templates">Repository Templates</h2>
+<p><img src="../images/manual/repository-templates-page.webp" alt="Repository templates page"></p>
+<p>These templates affect files written at the repository root.</p>
+<h3 id="readme-1"><code>README</code></h3>
+<p>Path:</p>
+<ul>
+<li><code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates &gt; Repository &gt; README</code></li>
+</ul>
+<p>This template becomes the repository root <code>README.md</code> when repository <code>Include README</code> is enabled.</p>
+<h3 id="agents"><code>AGENTS</code></h3>
+<p>Path:</p>
+<ul>
+<li><code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates &gt; Repository &gt; AGENTS</code></li>
+</ul>
+<p>This template becomes the repository root <code>AGENTS.md</code> when <code>Generate AGENTS.md</code> is enabled in the project settings section.</p>
+<h3 id="custom-license"><code>Custom License</code></h3>
+<p>Path:</p>
+<ul>
+<li><code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates &gt; Repository &gt; Custom License</code></li>
+</ul>
+<p>This template is used only when repository <code>Open Source License</code> is set to <code>Custom</code>.</p>
+<p>If the license type is set to one of the built-in SPDX options, the generated license comes from the built-in license templates instead.</p>
+<h2 id="documentation-templates">Documentation Templates</h2>
+<p>Path:</p>
+<ul>
+<li><code>Project Settings &gt; Doji &gt; Package Authoring &gt; Templates &gt; Documentation (DocFX)</code></li>
+</ul>
+<p><img src="../images/manual/documentation-templates-page.webp" alt="Documentation templates page"></p>
+<p>The generated <code>docs/</code> folder is created when <code>Create Documentation Folder</code> is enabled.</p>
+<p>The documentation template set includes:</p>
+<ul>
+<li>branding image sources for <code>docs/images</code></li>
+<li>editable template assets for <code>docs/docfx.json</code></li>
+<li>editable template assets for <code>docs/docfx-pdf.json</code></li>
+<li>editable template assets for <code>docs/filterConfig.yml</code></li>
+<li>editable template assets for <code>docs/index.md</code></li>
+<li>editable template assets for <code>docs/api/index.md</code></li>
+<li>built-in locked templates for <code>docs/.gitignore</code></li>
+<li>built-in locked templates for <code>docs/api/.gitignore</code></li>
+<li>built-in locked templates for <code>docs/toc.yml</code></li>
+<li>built-in locked templates for <code>docs/manual/toc.yml</code></li>
+<li>built-in locked templates for <code>docs/pdf/toc.yml</code></li>
+</ul>
+<p>See <a href="projects.html">Companion And Standalone Projects</a> for how generated projects consume the package.</p>
+<h3 id="documentation-branding">Documentation Branding</h3>
+<p>The documentation settings page can also write branding outputs under <code>docs/images</code>.</p>
+<p><img src="../images/manual/documentation-branding-fields.webp" alt="Documentation branding fields"></p>
+<ul>
+<li><code>Favicon Source</code> is used to generate <code>docs/images/favicon.ico</code></li>
+<li><code>Logo Source</code> is used to generate <code>docs/images/logo.png</code></li>
+</ul>
+<p>If no source textures are configured, the documentation scaffold is still created, but the image outputs are skipped.</p>
+<h3 id="editable-documentation-files">Editable Documentation Files</h3>
+<p>These are the files you will most commonly customize when you want different generated docs output between repositories.</p>
+<h4 id="docsdocfxjson"><code>docs/docfx.json</code></h4>
+<p>This is the main DocFX configuration used for the HTML site output.</p>
+<p>It contains the metadata and build configuration for:</p>
+<ul>
+<li>API extraction from the generated package source</li>
+<li>manual page inclusion</li>
+<li>output location</li>
+<li>template selection</li>
+</ul>
+<h4 id="docsdocfx-pdfjson"><code>docs/docfx-pdf.json</code></h4>
+<p>This is the PDF-oriented DocFX configuration.</p>
+<p>It extends the documentation build with PDF metadata and the PDF table-of-contents file.</p>
+<h4 id="docsfilterconfigyml"><code>docs/filterConfig.yml</code></h4>
+<p>This file controls which namespaces DocFX includes or excludes while generating the API reference.</p>
+<p>The default filter is tokenized around the package namespace so it can adapt to each generated repository.</p>
+<h4 id="docsindexmd"><code>docs/index.md</code></h4>
+<p>This is the generated documentation landing page for the repository docs site.</p>
+<p>High-level package-facing documentation, overview text, and links into the manual and API reference.</p>
+<h4 id="docsapiindexmd"><code>docs/api/index.md</code></h4>
+<p>This is the generated landing page for the API reference section.</p>
+<p>Introductory text for the scripting API pages that DocFX generates from the package source.</p>
+<h3 id="locked-documentation-files">Locked Documentation Files</h3>
+<p>These files are still part of the generated docs scaffold, but they are provided as built-in content rather than editable project overrides.</p>
+<h4 id="docsgitignore"><code>docs/.gitignore</code></h4>
+<p>This built-in file ignores DocFX output and build intermediates inside the generated <code>docs/</code> folder.</p>
+<h4 id="docsapigitignore"><code>docs/api/.gitignore</code></h4>
+<p>This built-in file ignores generated API YAML files and the DocFX manifest data under <code>docs/api/</code>.</p>
+<h4 id="docstocyml"><code>docs/toc.yml</code></h4>
+<p>This built-in root table of contents defines the top-level documentation navigation for the generated site.</p>
+<h4 id="docsmanualtocyml"><code>docs/manual/toc.yml</code></h4>
+<p>This built-in manual table of contents provides the manual section entry point for generated docs.</p>
+<h4 id="docspdftocyml"><code>docs/pdf/toc.yml</code></h4>
+<p>This built-in PDF table of contents controls the PDF-oriented navigation tree used by the DocFX PDF build.</p>
+<h2 id="why-some-templates-are-editable-and-others-are-locked">Why Some Templates Are Editable And Others Are Locked</h2>
+<p>The template editor distinguishes between:</p>
+<ul>
+<li>editable project-scoped templates that you can change directly</li>
+<li>locked built-in templates that are shown for reference but not edited from the UI</li>
+</ul>
+<p>Locked templates still matter because they define parts of the generated repository structure even when you cannot edit them in the settings page.</p>
+<h2 id="how-token-resolution-works">How Token Resolution Works</h2>
+<p>Token resolution happens when files are generated, not when you save the template.</p>
+<p>That means one template can be reused across many packages and companion projects. The final text depends on the wizard values in the current generation run.</p>
+<p>Examples:</p>
+<ul>
+<li>a repository README can include <code>{{PACKAGE_NAME}}</code> and <code>{{PACKAGE_DESCRIPTION}}</code></li>
+<li>a documentation index page can include <code>{{PACKAGE_NAME}}</code></li>
+<li>a custom license can include <code>{{YEAR}}</code> and <code>{{COPYRIGHT_HOLDER}}</code></li>
+</ul>
+<h2 id="good-template-practices">Good Template Practices</h2>
+<p>Templates are best for content that should stay consistent across repositories, not for values that already have dedicated settings.</p>
+<p>In practice:</p>
+<ul>
+<li>keep identifiers, version, company names, and URLs in the settings models</li>
+<li>use templates to control wording, structure, and repository conventions</li>
+<li>prefer tokens over hardcoded package-specific strings when the template is intended for reuse</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

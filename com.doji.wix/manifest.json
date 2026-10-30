@@ -1,0 +1,401 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/package-docs/package-docs/packages/com.doji.wix/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.BuildInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.BuildInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.BuildInfo",
+      "Summary": "<p sourcefile=\"api/WiX.BuildInfo.yml\" sourcestartlinenumber=\"1\">This class stores build context that is used for the process of generating an .msi installer.<br>\nThis includes information about the build binaries of the generated Windows Standalone Player\nand information about the WiX build process.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.Culture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.Culture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.Culture",
+      "Summary": "<p sourcefile=\"api/WiX.Culture.yml\" sourcestartlinenumber=\"1\">The languages supported by WiX.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.DesktopShortcutOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.DesktopShortcutOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.DesktopShortcutOption",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.Error.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.Error",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.InstallFolderNaming.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.InstallFolderNaming.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.InstallFolderNaming",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.InstallLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.InstallLocation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.InstallLocation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.Platform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.Platform.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.Platform",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.ProductIconOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.ProductIconOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.ProductIconOption",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.Result.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.Result.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.Result",
+      "Summary": "<p sourcefile=\"api/WiX.Result.yml\" sourcestartlinenumber=\"1\">Class to hold information on whether the build process successfully\ngenerated a valid .msi installer and information about what went wrong\notherwise.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.RunAfterInstallOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.RunAfterInstallOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.RunAfterInstallOption",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.StartMenuShortcutOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.StartMenuShortcutOption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.StartMenuShortcutOption",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.WiX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.WiX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.WiX",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.WiXSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.WiXSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.WiXSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.WiXUpdateSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.WiXUpdateSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX.WiXUpdateSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WiX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WiX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WiX",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/doji.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/doji.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/loose-files-msi.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/loose-files-msi.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/menubar.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/menubar.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/wizard_0.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/wizard_0.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/wizard_1.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/wizard_1.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/wizard_2.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/wizard_2.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/first-installer.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/first-installer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/limitations.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/limitations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/msi.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/msi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

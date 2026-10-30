@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Getting started </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Getting started ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://docs.doji-tech.com/tools.doji.convexify">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started">Getting started</h1>
+
+<p>Import the 'Shared Sample Assets', then the 'Basic Sample' or the 'Async Sample' in the Package Manager to see how to use the library. The samples need the Universal Render Pipeline (URP). All types are in the <code>Doji.Convexify</code> namespace.</p>
+<p>Essentially, this is the code necessary to calculate a convex decomposition:</p>
+<pre><code class="lang-CSharp">vhacd = new VHACD();
+ConvexDecomposition cd = vhacd.Compute(mesh, 0);
+vhacd.GenerateColliders(cd, gameObject);
+</code></pre>
+<p>That's really all there is to it. To configure the precision/speed of the calculations, there's a 'Parameter' instance you can modify like so:</p>
+<pre><code class="lang-CSharp">vhacd.Parameters.Resolution = 64;
+</code></pre>
+<p>This will increase the resolution that the algorithm uses, which will result in a more precise decomposition, but will also take longer to run.
+For more information on all the settings visit the documentation on the link above.</p>
+<h2 id="async">Async</h2>
+<p><code>ComputeAsync</code> does not block the main thread. The decomposition runs as Burst
+jobs, and the method waits across frames. Call it on the main thread.</p>
+<pre><code class="lang-CSharp">ConvexDecomposition cd = await vhacd.ComputeAsync(mesh, 0);
+await vhacd.GenerateCollidersAsync(cd, gameObject);
+</code></pre>
+<p>This works on all platforms, also on the Web. A Web build without
+multithreading runs the jobs on the main thread, so a frame can take longer.</p>
+<h2 id="native-arrays-and-jobs">Native arrays and jobs</h2>
+<p>Use <code>Schedule</code> to give the input as native arrays or as <code>Mesh.MeshData</code>, and
+to get the result as native arrays. This is for job and DOTS code.</p>
+<pre><code class="lang-CSharp">using Mesh.MeshDataArray data = Mesh.AcquireReadOnlyMeshData(mesh);
+ConvexDecompositionHandle handle = vhacd.Schedule(data[0], 0);
+
+// Later, on the main thread:
+if (handle.IsCompleted) {
+    using NativeConvexDecomposition result = handle.Complete(Allocator.Temp);
+    for (int h = 0; h &lt; result.HullCount; h++) {
+        NativeArray&lt;float3&gt; points = result.GetPoints(h);
+        NativeArray&lt;int&gt; indices = result.GetIndices(h); // into points
+    }
+}
+</code></pre>
+<p>Obey these rules:</p>
+<ul>
+<li>Call <code>Schedule</code>, <code>Complete</code>, and <code>Dispose</code> on the main thread.</li>
+<li>Call <code>Complete</code> or <code>Dispose</code> one time for each handle. Both wait for the jobs.</li>
+<li><code>Schedule(Mesh.MeshData, ...)</code> copies the mesh data. You can dispose the mesh
+data array after the call.</li>
+<li><code>Schedule(NativeArray&lt;float3&gt;, NativeArray&lt;int&gt;, ...)</code> does not copy the
+arrays. Do not change or dispose them until the handle is complete. Give the
+jobs that write them as <code>dependsOn</code>.</li>
+<li>Dispose the <code>NativeConvexDecomposition</code> when you do not need it.</li>
+</ul>
+<p><code>GenerateColliders</code> and <code>GenerateCollidersAsync</code> also accept a
+<code>NativeConvexDecomposition</code>. They read it before they return, so you can
+dispose it after the call. <code>ToConvexDecomposition</code> converts the result to a
+<code>ConvexDecomposition</code>.</p>
+<h2 id="colliders">Colliders</h2>
+<p><code>GenerateColliders</code> makes one game object with a convex <code>MeshCollider</code> for
+each hull. The PhysX bake of the meshes runs as a parallel job on worker
+threads, and the method waits for it. <code>GenerateCollidersAsync</code> does not wait
+on the main thread. On the Web without multithreading, the bake runs on the
+main thread.</p>
+<h2 id="burst">Burst</h2>
+<p>The decomposition needs Burst compilation for good performance. If you disable
+Burst compilation (for example with <strong>Jobs &gt; Burst &gt; Enable Compilation</strong>), the
+jobs run without Burst. They are much slower, and the hulls can be slightly
+different.</p>
+<h2 id="input-meshes">Input meshes</h2>
+<p>Convexify works best with closed meshes that have a volume. Some other input is
+handled as follows:</p>
+<ul>
+<li><strong>Flat meshes</strong> (for example a quad, a sign, or a card): if all vertices are
+within half a voxel of one plane, the mesh is flat. A flat mesh with a convex
+outline gives one hull. A flat mesh with a concave outline gives a small number
+of hulls. The hulls are one voxel thick, so the thickness changes with
+<code>Resolution</code>.</li>
+<li><strong>Meshes without surface area</strong> (no triangles, or all points on one line): the
+result has no hulls, and Convexify logs a warning.</li>
+<li><strong>Thin curved meshes</strong> (for example a bent sheet): these are not flat, so they
+can give many thin hulls.</li>
+</ul>
+<p><code>Compute</code> returns only hulls that PhysX can use as convex colliders.
+<code>GenerateColliders</code> and <code>GenerateCollidersAsync</code> make one collider for each hull.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

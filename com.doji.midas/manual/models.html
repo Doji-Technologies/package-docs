@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>MiDaS Models </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="MiDaS Models ">
+    
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://www.doji-tech.com/">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="midas-models">MiDaS Models</h1>
+
+<p>There are variety of different MiDaS models available. To be able to use them with Unity Sentis, the official models were converted to ONNX using <a href="https://github.com/julienkay/com.doji.midas/blob/master/tools/MiDaS_ONNX_Export.ipynb">this colab notebook</a>. You'll find links to the pretrained models in ONNX format below or on the <a href="https://github.com/julienkay/com.doji.midas/releases/tag/v1.0.0">GitHub Release page</a>.</p>
+<h2 id="overview">Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Size</th>
+<th>MiDaS Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/midas_v21_small_256.onnx">midas_v21_small_256</a></td>
+<td>63 MB</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/midas_v21_384.onnx">midas_v21_384</a></td>
+<td>397 MB</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_beit_large_512.onnx">dpt_beit_large_512</a></td>
+<td>1.34 GB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_beit_large_384.onnx">dpt_beit_large_384</a></td>
+<td>1.34 GB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_beit_base_384.onnx">dpt_beit_base_384</a></td>
+<td>450 MB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_swin2_large_384.onnx">dpt_swin2_large_384</a></td>
+<td>832 MB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_swin2_base_384.onnx">dpt_swin2_base_384</a></td>
+<td>410 MB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_swin2_tiny_256.onnx">dpt_swin2_tiny_256</a></td>
+<td>157 MB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_swin_large_384.onnx">dpt_swin_large_384</a></td>
+<td>854 MB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_next_vit_large_384.onnx">dpt_next_vit_large_384</a></td>
+<td>267 MB</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_levit_224.onnx">dpt_levit_224</a></td>
+<td>136 MB</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td><a href="https://github.com/julienkay/com.doji.midas/releases/download/v1.0.0/dpt_large_384.onnx">dpt_large_384</a></td>
+<td>1.27 GB</td>
+<td>3.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-the-models">Get The Models</h2>
+<p>To keep the package size reasonable, only the <a class="xref" href="../api/Doji.AI.Depth.ModelType.html#Doji_AI_Depth_ModelType_midas_v21_small_256">midas_v21_small_256</a> model is included with the package when downloading from the Asset Store. To use other models you have to downloaded them first.</p>
+<p>When you create an instance of the <a class="xref" href="../api/Doji.AI.Depth.Midas.html">Midas</a> class you can pass the <a class="xref" href="../api/Doji.AI.Depth.ModelType.html">ModelType</a> in the constructor to choose which model to use. In the Unity Editor if you're about to use a model that is not yet present, you will automatically be prompted to allow the file download.</p>
+<p>Otherwise you can always manually download the ONNX models from the links above and place them inside the Resources/ONNX folder.</p>
+<h2 id="which-model-to-use">Which Model To Use</h2>
+<h3 id="overview-1">Overview</h3>
+<p>You should choose the appropriate model type based on your requirements, considering factors such as accuracy, model size and performance.</p>
+<p>The available models usually have a tradeoff between memory &amp; performance and the accuracy/quality of the depth estimation.</p>
+<p>The <a href="https://github.com/isl-org/MiDaS">official MiDaS documentation</a> does a fairly good job of showcasing the different capabilities, so I'll just copy the performance overview here:</p>
+<p><img src="../images/overview.webp" alt="overview"></p>
+<p>Generally, if you have a hard realtime requirement, e.g. when you want to do depth estimation at runtime or on mobile devices, you may want to use smaller models like midas_v21_small_256 or dpt_swin2_tiny_256. If you need best quality (editor tools) or depth estimation needs to happen just once, you might be able to use models like dpt_swin2_large_384 or dpt_beit_large_384. Keep in mind the larger memory requirements for these model though.</p>
+<h3 id="examples">Examples</h3>
+<p>The comparison below is only meant to give a rough overview of the capabilities of each model.
+Judging the quality of a depth map from just a 2D image is hard. Consider using the WebcamSample that is included with the package to see how the different models perform when when projecting the estimated depth back into 3D as a point cloud.
+<img src="../images/model_samples.webp" alt="samples"></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

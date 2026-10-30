@@ -1,0 +1,197 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/package-docs/package-docs/packages/com.doji.midas/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Depth.EstimationFinished.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Depth.EstimationFinished.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Depth.EstimationFinished",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Depth.Midas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Depth.Midas.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Depth.Midas",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Depth.Midas.yml\" sourcestartlinenumber=\"1\">A class that allows to run Midas models\nto do monocular depth estimation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Depth.ModelType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Depth.ModelType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Depth.ModelType",
+      "Summary": "<p sourcefile=\"api/Doji.AI.Depth.ModelType.yml\" sourcestartlinenumber=\"1\">All the supported MiDaS models.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Doji.AI.Depth.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Doji.AI.Depth.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Doji.AI.Depth",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/banner.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/banner.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/doji.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/doji.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/model_samples.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/model_samples.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/overview.webp",
+      "output": {
+        "resource": {
+          "relative_path": "images/overview.webp"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/models.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/models.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class VHACD </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class VHACD ">
+    
+    <meta name="description" content="Computes convex decompositions of meshes and makes colliders from them.">
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="https://docs.doji-tech.com/tools.doji.convexify">
+                <img id="logo" class="svg" src="../images/doji.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Doji.Convexify.VHACD">
+
+
+
+  <h1 id="Doji_Convexify_VHACD" data-uid="Doji.Convexify.VHACD" class="text-break">Class VHACD</h1>
+  <div class="markdown level0 summary"><p>Computes convex decompositions of meshes and makes colliders from them.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">VHACD</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">Doji</span>.<a class="xref" href="Doji.Convexify.html">Convexify</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="Doji_Convexify_VHACD_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class VHACD</code></pre>
+  </div>
+  <h5 id="Doji_Convexify_VHACD_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The decomposition runs as Burst jobs on all platforms. On the Web, the jobs use worker threads when the
+build has multithreading; without it they run on the main thread with the same result.</p>
+<ul><li><a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_Compute_UnityEngine_Mesh_System_Int32_">Compute(Mesh, int)</a> and <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_ComputeAsync_UnityEngine_Mesh_System_Int32_">ComputeAsync(Mesh, int)</a>: a mesh in, managed hulls out.
+Then <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject_">GenerateColliders(ConvexDecomposition, GameObject)</a> or <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_GenerateCollidersAsync_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject_">GenerateCollidersAsync(ConvexDecomposition, GameObject)</a>.</li><li><a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_Schedule_Unity_Collections_NativeArray_Unity_Mathematics_float3__Unity_Collections_NativeArray_System_Int32__Unity_Jobs_JobHandle_">Schedule(NativeArray&lt;float3&gt;, NativeArray&lt;int&gt;, JobHandle)</a> and
+<a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_Schedule_UnityEngine_Mesh_MeshData_System_Int32_Unity_Jobs_JobHandle_">Schedule(MeshData, int, JobHandle)</a>: native input and output for job and DOTS code.</li></ul>
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <a id="Doji_Convexify_VHACD__ctor_" data-uid="Doji.Convexify.VHACD.#ctor*"></a>
+  <h4 id="Doji_Convexify_VHACD__ctor" data-uid="Doji.Convexify.VHACD.#ctor">VHACD()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VHACD()</code></pre>
+  </div>
+  <a id="Doji_Convexify_VHACD__ctor_" data-uid="Doji.Convexify.VHACD.#ctor*"></a>
+  <h4 id="Doji_Convexify_VHACD__ctor_Doji_Convexify_Parameters_" data-uid="Doji.Convexify.VHACD.#ctor(Doji.Convexify.Parameters)">VHACD(Parameters)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VHACD(Parameters p)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.Parameters.html">Parameters</a></td>
+        <td><span class="parametername">p</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <a id="Doji_Convexify_VHACD_Parameters_" data-uid="Doji.Convexify.VHACD.Parameters*"></a>
+  <h4 id="Doji_Convexify_VHACD_Parameters" data-uid="Doji.Convexify.VHACD.Parameters">Parameters</h4>
+  <div class="markdown level1 summary"><p>The decomposition parameters. The value at the start of a computation applies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Parameters Parameters { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.Parameters.html">Parameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <a id="Doji_Convexify_VHACD_Compute_" data-uid="Doji.Convexify.VHACD.Compute*"></a>
+  <h4 id="Doji_Convexify_VHACD_Compute_System_Collections_Generic_List_UnityEngine_Vector3__System_Collections_Generic_List_System_Int32__" data-uid="Doji.Convexify.VHACD.Compute(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{System.Int32})">Compute(List&lt;Vector3&gt;, List&lt;int&gt;)</h4>
+  <div class="markdown level1 summary"><p>Computes the convex hulls of a triangle mesh and waits for the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConvexDecomposition Compute(List&lt;Vector3&gt; vertices, List&lt;int&gt; indices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.html">Vector3</a>&gt;</td>
+        <td><span class="parametername">vertices</span></td>
+        <td><p>The vertex positions.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">indices</span></td>
+        <td><p>Three vertex indices for each triangle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_Compute_System_Collections_Generic_List_UnityEngine_Vector3__System_Collections_Generic_List_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Call on the main thread.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_Compute_" data-uid="Doji.Convexify.VHACD.Compute*"></a>
+  <h4 id="Doji_Convexify_VHACD_Compute_UnityEngine_Mesh_System_Int32_" data-uid="Doji.Convexify.VHACD.Compute(UnityEngine.Mesh,System.Int32)">Compute(Mesh, int)</h4>
+  <div class="markdown level1 summary"><p>Computes the convex hulls of a sub mesh and waits for the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConvexDecomposition Compute(Mesh mesh, int subMesh)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mesh.html">Mesh</a></td>
+        <td><span class="parametername">mesh</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subMesh</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_Compute_UnityEngine_Mesh_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The mesh must be readable. Call on the main thread.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_ComputeAsync_" data-uid="Doji.Convexify.VHACD.ComputeAsync*"></a>
+  <h4 id="Doji_Convexify_VHACD_ComputeAsync_System_Collections_Generic_List_UnityEngine_Vector3__System_Collections_Generic_List_System_Int32__" data-uid="Doji.Convexify.VHACD.ComputeAsync(System.Collections.Generic.List{UnityEngine.Vector3},System.Collections.Generic.List{System.Int32})">ComputeAsync(List&lt;Vector3&gt;, List&lt;int&gt;)</h4>
+  <div class="markdown level1 summary"><p>Computes the convex hulls of a triangle mesh without blocking the main thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ConvexDecomposition&gt; ComputeAsync(List&lt;Vector3&gt; vertices, List&lt;int&gt; indices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.html">Vector3</a>&gt;</td>
+        <td><span class="parametername">vertices</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">indices</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_ComputeAsync_System_Collections_Generic_List_UnityEngine_Vector3__System_Collections_Generic_List_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Call on the main thread. The jobs run while the awaiting code waits across frames. Works on all
+platforms, also on the Web.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_ComputeAsync_" data-uid="Doji.Convexify.VHACD.ComputeAsync*"></a>
+  <h4 id="Doji_Convexify_VHACD_ComputeAsync_UnityEngine_Mesh_System_Int32_" data-uid="Doji.Convexify.VHACD.ComputeAsync(UnityEngine.Mesh,System.Int32)">ComputeAsync(Mesh, int)</h4>
+  <div class="markdown level1 summary"><p>Computes the convex hulls of a sub mesh without blocking the main thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ConvexDecomposition&gt; ComputeAsync(Mesh mesh, int subMesh)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mesh.html">Mesh</a></td>
+        <td><span class="parametername">mesh</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subMesh</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_ComputeAsync_UnityEngine_Mesh_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Call on the main thread. The jobs run while the awaiting code waits across frames. Works on all
+platforms, also on the Web.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_GenerateColliders_" data-uid="Doji.Convexify.VHACD.GenerateColliders*"></a>
+  <h4 id="Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject_" data-uid="Doji.Convexify.VHACD.GenerateColliders(Doji.Convexify.ConvexDecomposition,UnityEngine.GameObject)">GenerateColliders(ConvexDecomposition, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MeshCollider.html">MeshCollider</a>s for the given list of <a class="xref" href="Doji.Convexify.ConvexHull.html">ConvexHull</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Collider&gt; GenerateColliders(ConvexDecomposition convexDecomp, GameObject target = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a></td>
+        <td><span class="parametername">convexDecomp</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html">GameObject</a></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Collider.html">Collider</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The result has one convex collider for each hull, in the order of <a class="xref" href="Doji.Convexify.ConvexDecomposition.html#Doji_Convexify_ConvexDecomposition_ConvexHulls">ConvexHulls</a>.
+A hull that PhysX cannot use (flat or degenerate) gets no collider. <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_Compute_System_Collections_Generic_List_UnityEngine_Vector3__System_Collections_Generic_List_System_Int32__">Compute(List&lt;Vector3&gt;, List&lt;int&gt;)</a>
+does not return such hulls. The PhysX bake of the meshes runs as a parallel job on worker threads where
+the platform has them; this method waits for it.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_GenerateColliders_" data-uid="Doji.Convexify.VHACD.GenerateColliders*"></a>
+  <h4 id="Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_NativeConvexDecomposition_UnityEngine_GameObject_" data-uid="Doji.Convexify.VHACD.GenerateColliders(Doji.Convexify.NativeConvexDecomposition,UnityEngine.GameObject)">GenerateColliders(NativeConvexDecomposition, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MeshCollider.html">MeshCollider</a>s for the hulls of a native result, without a
+<a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Collider&gt; GenerateColliders(NativeConvexDecomposition result, GameObject target = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.NativeConvexDecomposition.html">NativeConvexDecomposition</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html">GameObject</a></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Collider.html">Collider</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_NativeConvexDecomposition_UnityEngine_GameObject__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The result has one convex collider for each hull, in the order of
+<a class="xref" href="Doji.Convexify.NativeConvexDecomposition.html#Doji_Convexify_NativeConvexDecomposition_Hulls">Hulls</a>. A Burst job writes the meshes. The PhysX bake runs as a
+parallel job; this method waits for it. You can dispose <code class="paramref">result</code> after the call.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_GenerateCollidersAsync_" data-uid="Doji.Convexify.VHACD.GenerateCollidersAsync*"></a>
+  <h4 id="Doji_Convexify_VHACD_GenerateCollidersAsync_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject_" data-uid="Doji.Convexify.VHACD.GenerateCollidersAsync(Doji.Convexify.ConvexDecomposition,UnityEngine.GameObject)">GenerateCollidersAsync(ConvexDecomposition, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MeshCollider.html">MeshCollider</a>s for the given list of <a class="xref" href="Doji.Convexify.ConvexHull.html">ConvexHull</a>s, without waiting for
+the PhysX bake on the main thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;Collider&gt;&gt; GenerateCollidersAsync(ConvexDecomposition convexDecomp, GameObject target = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.ConvexDecomposition.html">ConvexDecomposition</a></td>
+        <td><span class="parametername">convexDecomp</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html">GameObject</a></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Collider.html">Collider</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_GenerateCollidersAsync_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gives the same colliders as <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_ConvexDecomposition_UnityEngine_GameObject_">GenerateColliders(ConvexDecomposition, GameObject)</a>. Call on the
+main thread. The bake runs as a parallel job while the awaiting code waits across frames. On the Web
+without multithreading, the bake runs on the main thread.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_GenerateCollidersAsync_" data-uid="Doji.Convexify.VHACD.GenerateCollidersAsync*"></a>
+  <h4 id="Doji_Convexify_VHACD_GenerateCollidersAsync_Doji_Convexify_NativeConvexDecomposition_UnityEngine_GameObject_" data-uid="Doji.Convexify.VHACD.GenerateCollidersAsync(Doji.Convexify.NativeConvexDecomposition,UnityEngine.GameObject)">GenerateCollidersAsync(NativeConvexDecomposition, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MeshCollider.html">MeshCollider</a>s for the hulls of a native result, without waiting for the PhysX bake
+on the main thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;List&lt;Collider&gt;&gt; GenerateCollidersAsync(NativeConvexDecomposition result, GameObject target = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.NativeConvexDecomposition.html">NativeConvexDecomposition</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html">GameObject</a></td>
+        <td><span class="parametername">target</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Collider.html">Collider</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_GenerateCollidersAsync_Doji_Convexify_NativeConvexDecomposition_UnityEngine_GameObject__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Gives the same colliders as <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_GenerateColliders_Doji_Convexify_NativeConvexDecomposition_UnityEngine_GameObject_">GenerateColliders(NativeConvexDecomposition, GameObject)</a>. The
+method reads <code class="paramref">result</code> before it returns, so you can dispose it after the call.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_Schedule_" data-uid="Doji.Convexify.VHACD.Schedule*"></a>
+  <h4 id="Doji_Convexify_VHACD_Schedule_Unity_Collections_NativeArray_Unity_Mathematics_float3__Unity_Collections_NativeArray_System_Int32__Unity_Jobs_JobHandle_" data-uid="Doji.Convexify.VHACD.Schedule(Unity.Collections.NativeArray{Unity.Mathematics.float3},Unity.Collections.NativeArray{System.Int32},Unity.Jobs.JobHandle)">Schedule(NativeArray&lt;float3&gt;, NativeArray&lt;int&gt;, JobHandle)</h4>
+  <div class="markdown level1 summary"><p>Schedules the convex decomposition of a triangle mesh in native arrays as Burst jobs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConvexDecompositionHandle Schedule(NativeArray&lt;float3&gt; vertices, NativeArray&lt;int&gt; indices, JobHandle dependsOn = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Unity.Collections.NativeArray_1.html">NativeArray</a>&lt;<a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a>&gt;</td>
+        <td><span class="parametername">vertices</span></td>
+        <td><p>The vertex positions. Keep the array alive and unchanged until the handle completes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Unity.Collections.NativeArray_1.html">NativeArray</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td><span class="parametername">indices</span></td>
+        <td><p>Three vertex indices for each triangle. Keep the array alive and unchanged until the handle completes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Unity.Jobs.JobHandle.html">JobHandle</a></td>
+        <td><span class="parametername">dependsOn</span></td>
+        <td><p>Jobs that must complete before the decomposition starts, for example jobs that write the input.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.ConvexDecompositionHandle.html">ConvexDecompositionHandle</a></td>
+        <td><p>A handle. Call <a class="xref" href="Doji.Convexify.ConvexDecompositionHandle.html#Doji_Convexify_ConvexDecompositionHandle_Complete_Unity_Collections_Allocator_">Complete(Allocator)</a> to get the result, or
+<a class="xref" href="Doji.Convexify.ConvexDecompositionHandle.html#Doji_Convexify_ConvexDecompositionHandle_Dispose">Dispose()</a> to release it.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_Schedule_Unity_Collections_NativeArray_Unity_Mathematics_float3__Unity_Collections_NativeArray_System_Int32__Unity_Jobs_JobHandle__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Call on the main thread. Uses the <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_Parameters">Parameters</a> at the time of the call.</p>
+</div>
+  <a id="Doji_Convexify_VHACD_Schedule_" data-uid="Doji.Convexify.VHACD.Schedule*"></a>
+  <h4 id="Doji_Convexify_VHACD_Schedule_UnityEngine_Mesh_MeshData_System_Int32_Unity_Jobs_JobHandle_" data-uid="Doji.Convexify.VHACD.Schedule(UnityEngine.Mesh.MeshData,System.Int32,Unity.Jobs.JobHandle)">Schedule(MeshData, int, JobHandle)</h4>
+  <div class="markdown level1 summary"><p>Schedules the convex decomposition of a sub mesh of <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mesh.MeshData.html">Mesh</a> as Burst jobs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConvexDecompositionHandle Schedule(Mesh.MeshData meshData, int subMesh, JobHandle dependsOn = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mesh.html">Mesh</a>.<a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mesh.MeshData.html">MeshData</a></td>
+        <td><span class="parametername">meshData</span></td>
+        <td><p>The mesh data, for example from <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mesh.AcquireReadOnlyMeshData.html">AcquireReadOnlyMeshData(Mesh)</a>. The
+method copies the vertices and indices, so you can dispose the mesh data array after the call.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">subMesh</span></td>
+        <td><p>The sub mesh. It must use <a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MeshTopology.Triangles.html">Triangles</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Unity.Jobs.JobHandle.html">JobHandle</a></td>
+        <td><span class="parametername">dependsOn</span></td>
+        <td><p>Jobs that must complete before the decomposition starts.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Doji.Convexify.ConvexDecompositionHandle.html">ConvexDecompositionHandle</a></td>
+        <td><p>A handle. Call <a class="xref" href="Doji.Convexify.ConvexDecompositionHandle.html#Doji_Convexify_ConvexDecompositionHandle_Complete_Unity_Collections_Allocator_">Complete(Allocator)</a> to get the result, or
+<a class="xref" href="Doji.Convexify.ConvexDecompositionHandle.html#Doji_Convexify_ConvexDecompositionHandle_Dispose">Dispose()</a> to release it.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Doji_Convexify_VHACD_Schedule_UnityEngine_Mesh_MeshData_System_Int32_Unity_Jobs_JobHandle__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Call on the main thread. Uses the <a class="xref" href="Doji.Convexify.VHACD.html#Doji_Convexify_VHACD_Parameters">Parameters</a> at the time of the call.</p>
+</div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
